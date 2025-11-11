@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Servicio de la API REST en PHP
+  api-php:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: albuaves-api
+    ports:
+      - "9191:9191"
+    volumes:
+      - ./db:/var/www/html/db:ro
+      - ./php/api.php:/var/www/html/api.php:ro
+    networks:
+      - albuaves-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9191/api.php"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  # Servicio cliente Java
+  client-java:
+    build:
+      context: .
+      dockerfile: java/Dockerfile
+    container_name: albuaves-client
+    depends_on:
+      api-php:
+        condition: service_healthy
+    volumes:
+      - ./libs:/app/libs:ro
+      - ./java:/app/java:ro
+    networks:
+      - albuaves-network
+    environment:
+      - API_URL=http://api-php:9191/api.php
+
+networks:
+  albuaves-network:
+    driver: bridge
