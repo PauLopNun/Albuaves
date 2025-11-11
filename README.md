@@ -59,15 +59,7 @@ Esta es la forma más fácil y visual de explorar las aves. Verás:
 
 ### Captura de pantalla de la interfaz
 
-*Aquí va la captura de pantalla de cómo se ve la web*
-
-```
-[Inserta aquí tu captura de pantalla del navegador mostrando:
-  - La galería de aves
-  - Las tarjetas con imágenes
-  - El buscador en la parte superior
-  - El diseño responsivo]
-```
+![Interfaz Web - Galería de Aves Albuaves](docimgs/Albuaves%20-%20Sistema%20de%20Gestión%20de%20Aves-1.png)
 
 ### Lo que verás en la interfaz
 
