@@ -15,6 +15,8 @@ Sistema completo dockerizado para gestión y consulta de aves acuáticas de la A
 
 ## Inicio Rápido
 
+Elige una de estas opciones (todos hacen lo mismo automáticamente):
+
 ### Windows
 ```bash
 run-docker.bat
@@ -26,7 +28,7 @@ chmod +x start.sh
 ./start.sh
 ```
 
-### Usando Docker Compose directamente
+**Nota:** Los scripts anteriores ejecutan internamente `docker-compose up --build`, así que también puedes usar directamente:
 ```bash
 docker-compose up --build
 ```
@@ -50,6 +52,36 @@ Esta es la forma más fácil y visual de explorar las aves. Verás:
 **URL:** http://localhost:9191/api.php
 
 #### Endpoints disponibles
+
+---
+
+## 🖼️ Interfaz Web - Vista Previa
+
+### Captura de pantalla de la interfaz
+
+*Aquí va la captura de pantalla de cómo se ve la web*
+
+```
+[Inserta aquí tu captura de pantalla del navegador mostrando:
+  - La galería de aves
+  - Las tarjetas con imágenes
+  - El buscador en la parte superior
+  - El diseño responsivo]
+```
+
+### Lo que verás en la interfaz
+
+- **Encabezado:** Título "🦅 Albuaves" con descripción
+- **Buscador:** Cuadro de búsqueda en tiempo real en la parte superior
+- **Galería:** Grid de tarjetas (2-4 columnas según pantalla) con:
+  - 📷 Imagen de cada ave (fotos reales de alta calidad)
+  - 🏷️ Nombre común
+  - 🔬 Nombre científico
+  - 📝 Descripción detallada
+- **Responsivo:** Se adapta automáticamente a móvil, tablet y escritorio
+- **Interactivo:** Las tarjetas se elevan al pasar el ratón, con efectos visuales suaves
+
+---
 
 ```bash
 # Obtener todas las aves en JSON
