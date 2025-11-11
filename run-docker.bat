@@ -38,6 +38,39 @@ echo ======================================
 echo   Proceso completado
 echo ======================================
 echo.
+
+REM Mensaje visual mejorado con enlaces y ejemplos
+echo.
+echo ===================================================================
+echo                ALBUAVES INICIADO CORRECTAMENTE
+echo ===================================================================
+echo.
+echo ACCESO A LA APLICACION:
+echo.
+echo [WEB] Interfaz Web (Usuarios finales):
+echo       URL: http://localhost:9191
+echo       Descripcion: Galeria visual de aves acuaticas
+echo.
+echo [API] API REST (Desarrolladores):
+echo       Base URL: http://localhost:9191/api.php
+echo       Descripcion: Acceso programatico a la base de datos de aves
+echo.
+echo -------------------------------------------------------------------
+echo.
+echo EJEMPLOS DE USO:
+echo.
+echo   * Obtener todas las aves:
+echo     curl "http://localhost:9191/api.php?action=list"
+echo.
+echo   * Consultar un ave especifica (ID=1):
+echo     curl "http://localhost:9191/api.php?action=get&id=1"
+echo.
+echo   * Ver respuesta formateada (ID=1):
+echo     curl "http://localhost:9191/api.php?action=get&id=1" | jq .
+echo.
+echo -------------------------------------------------------------------
+echo.
 echo Para detener los servicios, ejecuta: docker-compose down
+echo.
 
 pause
