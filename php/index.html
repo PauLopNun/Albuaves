@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albuaves - Sistema de Gestión de Aves</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🦅 Albuaves</h1>
+                <p class="subtitle">Sistema de Gestión y Visualización de Aves Acuáticas</p>
+            </div>
+        </header>
+
+        <!-- Buscador -->
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-box" placeholder="Buscar ave por nombre común o científico...">
+            <span id="resultCount" class="result-count"></span>
+        </div>
+
+        <!-- Grid de Aves -->
+        <main class="birds-grid" id="birdsGrid">
+            <div class="loading">Cargando aves...</div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Albuaves - Sistema de Gestión de Aves Acuáticas</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

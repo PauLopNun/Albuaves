@@ -1,0 +1,10 @@
+UPDATE aves SET imagen_url = 'imgs/aves/martinete.jpg' WHERE id_ave = 1;
+UPDATE aves SET imagen_url = 'imgs/aves/garza_real.jpg' WHERE id_ave = 2;
+UPDATE aves SET imagen_url = 'imgs/aves/flamenco_comun.jpg' WHERE id_ave = 3;
+UPDATE aves SET imagen_url = 'imgs/aves/anade_real.jpg' WHERE id_ave = 4;
+UPDATE aves SET imagen_url = 'imgs/aves/charran_comun.jpg' WHERE id_ave = 5;
+UPDATE aves SET imagen_url = 'imgs/aves/somormujo_lavanco.jpg' WHERE id_ave = 6;
+UPDATE aves SET imagen_url = 'imgs/aves/calamon_comun.jpg' WHERE id_ave = 7;
+UPDATE aves SET imagen_url = 'imgs/aves/avetoro_comun.jpg' WHERE id_ave = 8;
+UPDATE aves SET imagen_url = 'imgs/aves/pato_colorado.jpg' WHERE id_ave = 9;
+UPDATE aves SET imagen_url = 'imgs/aves/aguilucho_lagunero.jpg' WHERE id_ave = 10;

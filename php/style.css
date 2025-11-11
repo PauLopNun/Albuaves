@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1e7e74;
+    --primary-dark: #165d54;
+    --primary-light: #2db8aa;
+    --accent-color: #f39c12;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-light: #ecf0f1;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ecf0f1 0%, #f8f9fa 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.header-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: 2px solid var(--primary-light);
+    border-radius: 25px;
+    background: white;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+}
+
+.result-count {
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+/* Birds Grid */
+.birds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.bird-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.bird-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.bird-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #ddd 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.bird-card:hover .bird-image {
+    transform: scale(1.05);
+}
+
+.bird-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.bird-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-bottom: 8px;
+}
+
+.bird-scientific-name {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.95em;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--bg-light);
+    padding-bottom: 8px;
+}
+
+.bird-description {
+    color: var(--text-dark);
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.bird-id {
+    background: var(--primary-light);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    width: fit-content;
+    margin-top: auto;
+}
+
+/* Loading State */
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 1.1em;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 3px solid var(--primary-light);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty State */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+
+.no-results h2 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: var(--shadow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+    }
+
+    .birds-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .bird-image {
+        height: 180px;
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+
+    .search-box {
+        min-width: 100%;
+    }
+
+    .result-count {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 15px;
+        margin-bottom: 30px;
+    }
+
+    .header-content h1 {
+        font-size: 1.5em;
+    }
+
+    .birds-grid {
+        grid-template-columns: 1fr;
+    }
+}
