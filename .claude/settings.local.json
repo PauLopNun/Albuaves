@@ -26,7 +26,9 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(__NEW_LINE__ git config --global user.email \"claude@anthropic.com\")",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(__NEW_LINE__ echo \"╔════════════════════════════════════════════════════════════════════╗\" echo \"║              ✅ DOCUMENTACIÓN ACTUALIZADA EXITOSAMENTE            ║\" echo \"╚════════════════════════════════════════════════════════════════════╝\" echo \"\" echo \"📝 CAMBIOS EN EL README.md:\" echo \"\" echo \"✅ Título actualizado con emojis y descripción clara\" echo \"✅ Sección ''''Acceso rápido'''' con dos opciones:\" echo \"   - Interfaz Web Visual (para usuarios finales)\" echo \"   - API REST (para desarrolladores)\" echo \"✅ Estructura del proyecto detallada:\" echo \"   - 🌐 Interfaz web con archivos HTML/CSS/JS\" echo \"   - 📷 Carpeta de imágenes de aves\" echo \"   - 💻 Cliente Java\" echo \"   - 🗄️ Base de datos\" echo \"✅ Arquitectura mejorada con ASCII art\" echo \"✅ Descripción de servicios actualizada\" echo \"✅ Nueva sección ''''🌐 Guía de la Interfaz Web''''\" echo \"✅ Tabla de 10 aves acuáticas disponibles\" echo \"✅ Tecnología de la interfaz web explicada\" echo \"✅ Solución de problemas actualizada:\" echo \"   - Problema: imágenes no cargan (caché)\" echo \"   - 3 soluciones diferentes\" echo \"✅ Sección ''''Características Principales'''' mejorada\" echo \"✅ Cambios en la Versión 2.0 listados\" echo \"✅ Versión actualizada a 2.0\" echo \"\" echo \"📊 ESTADÍSTICAS DEL README:\" git diff HEAD~1 README.md)",
+      "Bash(__NEW_LINE__ echo \"╔════════════════════════════════════════════════════════════════════╗\")"
     ],
     "deny": [],
     "ask": []
