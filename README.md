@@ -1,21 +1,21 @@
-# 🦅 Albuaves - Sistema de Gestión de Aves de la Albufera
+# 🦅 Albuaves - Albufera Bird Management System
 
-Sistema completo dockerizado para gestión y consulta de aves acuáticas de la Albufera de Valencia. Incluye:
-- 🌐 **Interfaz web visual** con galería de aves e imágenes
-- 📱 **API REST** en PHP con SQLite
-- 💻 **Cliente Java** para consumir la API
-- 🗄️ **Base de datos** con 10 especies de aves acuáticas
+Complete dockerized system for managing and querying waterfowl from the Albufera of Valencia. Includes:
+- 🌐 **Visual web interface** with bird gallery and images
+- 📱 **REST API** in PHP with SQLite
+- 💻 **Java client** to consume the API
+- 🗄️ **Database** with 10 species of waterfowl
 
-## Requisitos
+## Requirements
 
-- Docker Desktop instalado
-- Docker Compose instalado
+- Docker Desktop installed
+- Docker Compose installed
 
-**Eso es todo.** No necesitas instalar PHP, Java, ni ninguna otra dependencia en tu sistema.
+**That's all.** You don't need to install PHP, Java, or any other dependencies on your system.
 
-## Inicio Rápido
+## Quick Start
 
-Elige una de estas opciones (todos hacen lo mismo automáticamente):
+Choose one of these options (all do the same thing automatically):
 
 ### Windows
 ```bash
@@ -28,65 +28,65 @@ chmod +x start.sh
 ./start.sh
 ```
 
-**Nota:** Los scripts anteriores ejecutan internamente `docker-compose up --build`, así que también puedes usar directamente:
+**Note:** The above scripts internally run `docker-compose up --build`, so you can also use directly:
 ```bash
 docker-compose up --build
 ```
 
-## Acceso rápido
+## Quick Access
 
-Una vez iniciado el sistema, tienes dos formas de acceder:
+Once the system is started, you have two ways to access it:
 
-### 🌐 Opción 1: Interfaz Web Visual (Recomendado)
+### 🌐 Option 1: Visual Web Interface (Recommended)
 
 **URL:** http://localhost:9191/
 
-Esta es la forma más fácil y visual de explorar las aves. Verás:
-- 📷 **10 tarjetas con imágenes** de cada ave acuática
-- 🔍 **Buscador en tiempo real** para filtrar aves por nombre
-- ℹ️ **Información completa** de cada ave (nombre común, científico, descripción)
-- 📱 **Diseño responsivo** que funciona en móvil, tablet y escritorio
+This is the easiest and most visual way to explore the birds. You will see:
+- 📷 **10 cards with images** of each waterfowl
+- 🔍 **Real-time search** to filter birds by name
+- ℹ️ **Complete information** for each bird (common name, scientific name, description)
+- 📱 **Responsive design** that works on mobile, tablet and desktop
 
-### 📡 Opción 2: API REST (Para desarrolladores)
+### 📡 Option 2: REST API (For developers)
 
 **URL:** http://localhost:9191/api.php
 
-#### Endpoints disponibles
+#### Available endpoints
 
 ---
 
-## 🖼️ Interfaz Web - Vista Previa
+## 🖼️ Web Interface - Preview
 
-### Captura de pantalla de la interfaz
+### Screenshot of the interface
 
-![Interfaz Web - Galería de Aves Albuaves](docimgs/Albuaves%20-%20Sistema%20de%20Gestión%20de%20Aves-1.png)
+![Web Interface - Albuaves Bird Gallery](docimgs/Albuaves%20-%20Sistema%20de%20Gestión%20de%20Aves-1.png)
 
-### Lo que verás en la interfaz
+### What you will see in the interface
 
-- **Encabezado:** Título "🦅 Albuaves" con descripción
-- **Buscador:** Cuadro de búsqueda en tiempo real en la parte superior
-- **Galería:** Grid de tarjetas (2-4 columnas según pantalla) con:
-  - 📷 Imagen de cada ave (fotos reales de alta calidad)
-  - 🏷️ Nombre común
-  - 🔬 Nombre científico
-  - 📝 Descripción detallada
-- **Responsivo:** Se adapta automáticamente a móvil, tablet y escritorio
-- **Interactivo:** Las tarjetas se elevan al pasar el ratón, con efectos visuales suaves
+- **Header:** Title "🦅 Albuaves" with description
+- **Search:** Real-time search box at the top
+- **Gallery:** Grid of cards (2-4 columns depending on screen) with:
+  - 📷 Image of each bird (high-quality real photos)
+  - 🏷️ Common name
+  - 🔬 Scientific name
+  - 📝 Detailed description
+- **Responsive:** Automatically adapts to mobile, tablet and desktop
+- **Interactive:** Cards elevate on hover, with smooth visual effects
 
 ---
 
 ```bash
-# Obtener todas las aves en JSON
+# Get all birds in JSON
 curl http://localhost:9191/api.php
 
-# Obtener un ave específica por ID
+# Get a specific bird by ID
 curl http://localhost:9191/api.php?id=1
 
-# O simplemente abre en tu navegador:
+# Or simply open in your browser:
 http://localhost:9191/api.php
 ```
 
-#### Respuesta ejemplo
+#### Example response
 ```json
 [
   {
@@ -100,26 +100,26 @@ http://localhost:9191/api.php
 ]
 ```
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 UP02-Proyecto-DAM-Albuaves/
-├── docker-compose.yml                    # Orquestación de servicios Docker
-├── README.md                             # Este archivo (documentación)
-├── start.sh                              # Script inicio Linux/Mac/WSL
-├── run-docker.sh                        # Script inicio detallado Linux/Mac
-├── run-docker.bat                       # Script inicio Windows
-├── test-api.sh                          # Script para probar la API
+├── docker-compose.yml                    # Docker services orchestration
+├── README.md                             # This file (documentation)
+├── start.sh                              # Linux/Mac/WSL startup script
+├── run-docker.sh                        # Detailed Linux/Mac startup script
+├── run-docker.bat                       # Windows startup script
+├── test-api.sh                          # Script to test the API
 │
-├── php/                                  # 🌐 INTERFAZ WEB
-│   ├── Dockerfile                       # Imagen Docker PHP 8.2 + Apache
-│   ├── api.php                          # API REST en PHP
-│   ├── index.html                       # Página principal (interfaz visual)
-│   ├── style.css                        # Estilos CSS de la interfaz
-│   ├── script.js                        # JavaScript - lógica de la interfaz
-│   ├── .htaccess                        # Configuración Apache (URL rewriting)
-│   ├── router.php                       # Router auxiliar
-│   └── imgs/aves/                       # 📷 IMÁGENES DE AVES (10 fotos)
+├── php/                                  # 🌐 WEB INTERFACE
+│   ├── Dockerfile                       # Docker image PHP 8.2 + Apache
+│   ├── api.php                          # REST API in PHP
+│   ├── index.html                       # Main page (visual interface)
+│   ├── style.css                        # Interface CSS styles
+│   ├── script.js                        # JavaScript - interface logic
+│   ├── .htaccess                        # Apache configuration (URL rewriting)
+│   ├── router.php                       # Auxiliary router
+│   └── imgs/aves/                       # 📷 BIRD IMAGES (10 photos)
 │       ├── martinete.jpg
 │       ├── garza_real.jpg
 │       ├── flamenco_comun.jpg
@@ -131,118 +131,118 @@ UP02-Proyecto-DAM-Albuaves/
 │       ├── pato_colorado.jpg
 │       └── aguilucho_lagunero.jpg
 │
-├── java/                                 # 💻 CLIENTE JAVA
-│   ├── Dockerfile                       # Imagen Docker Java 17
-│   └── BuscadorAvesAPI.java             # Cliente que consume la API
+├── java/                                 # 💻 JAVA CLIENT
+│   ├── Dockerfile                       # Docker image Java 17
+│   └── BuscadorAvesAPI.java             # Client that consumes the API
 │
-├── db/                                   # 🗄️ BASE DE DATOS
-│   ├── albuaves.db                      # SQLite con 10 especies
-│   ├── albuaves-db-create.sql          # Script creación tablas
-│   └── albuaves-tables-population.sql  # Script inserción datos
+├── db/                                   # 🗄️ DATABASE
+│   ├── albuaves.db                      # SQLite with 10 species
+│   ├── albuaves-db-create.sql          # Table creation script
+│   └── albuaves-tables-population.sql  # Data insertion script
 │
-└── libs/                                 # 📚 LIBRERÍAS
-    ├── json-20250517.jar               # JSON parser para Java
-    └── sqlite-jdbc.jar                 # Driver JDBC SQLite
+└── libs/                                 # 📚 LIBRARIES
+    ├── json-20250517.jar               # JSON parser for Java
+    └── sqlite-jdbc.jar                 # SQLite JDBC driver
 ```
 
-## Arquitectura
+## Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                         Docker Compose                            │
 │                                                                   │
 │  ┌──────────────────────────────────┐  ┌────────────────────┐   │
-│  │         api-php (Puerto 9191)     │  │   client-java      │   │
+│  │         api-php (Port 9191)       │  │   client-java      │   │
 │  │     PHP 8.2 + Apache + SQLite     │◄─│   OpenJDK 17       │   │
-│  │                                   │  │   Consume API      │   │
-│  │  ┌─ Interfaz Web Visual ────┐    │  │                    │   │
-│  │  │ 🌐 index.html (HTML)      │    │  │  Healthcheck OK ✓  │   │
-│  │  │ 🎨 style.css (CSS)        │    │  │  depends_on: api   │   │
-│  │  │ ⚙️ script.js (JavaScript)│    │  │                    │   │
-│  │  │ 📡 api.php (API REST)     │    │  └────────────────────┘   │
-│  │  └───────────────────────────┘    │                           │
+│  │                                   │  │   Consumes API     │   │
+│  │  ┌─ Visual Web Interface ────┐   │  │                    │   │
+│  │  │ 🌐 index.html (HTML)       │   │  │  Healthcheck OK ✓  │   │
+│  │  │ 🎨 style.css (CSS)         │   │  │  depends_on: api   │   │
+│  │  │ ⚙️ script.js (JavaScript) │   │  │                    │   │
+│  │  │ 📡 api.php (REST API)      │   │  └────────────────────┘   │
+│  │  └────────────────────────────┘   │                           │
 │  │                                   │                           │
-│  │  ┌─ Imágenes de Aves ────────┐   │                           │
-│  │  │ 📷 imgs/aves/             │   │                           │
-│  │  │   ├── martinete.jpg       │   │                           │
-│  │  │   ├── garza_real.jpg      │   │                           │
-│  │  │   ├── flamenco_comun.jpg  │   │                           │
-│  │  │   └── ... (10 imágenes)   │   │                           │
-│  │  └───────────────────────────┘   │                           │
+│  │  ┌─ Bird Images ─────────────┐   │                           │
+│  │  │ 📷 imgs/aves/              │   │                           │
+│  │  │   ├── martinete.jpg        │   │                           │
+│  │  │   ├── garza_real.jpg       │   │                           │
+│  │  │   ├── flamenco_comun.jpg   │   │                           │
+│  │  │   └── ... (10 images)      │   │                           │
+│  │  └────────────────────────────┘   │                           │
 │  └──────────────────────────────────┘                           │
 │             │                                                     │
 │             ▼                                                     │
 │  ┌──────────────────────────────────┐                           │
-│  │      Base de datos SQLite        │                           │
+│  │      SQLite database             │                           │
 │  │      albuaves.db                 │                           │
-│  │  (10 especies de aves)           │                           │
+│  │  (10 bird species)               │                           │
 │  └──────────────────────────────────┘                           │
 │                                                                   │
-│         Red privada: albuaves-network (Bridge)                  │
+│         Private network: albuaves-network (Bridge)               │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-## Servicios
+## Services
 
-### 🌐 API PHP + Interfaz Web (api-php)
-- **Puerto:** 9191
-- **Tecnología:** PHP 8.2 + Apache
-- **Accesos:**
-  - Interfaz visual: http://localhost:9191/
-  - API JSON: http://localhost:9191/api.php
-- **Base de datos:** SQLite3 con 10 especies de aves
-- **Healthcheck:** Verifica que la API responda antes de iniciar otros servicios
-- **Características:**
-  - Interfaz web moderna y responsive
-  - Buscador en tiempo real
-  - 10 imágenes de aves de alta calidad
-  - API REST para desarrolladores
+### 🌐 PHP API + Web Interface (api-php)
+- **Port:** 9191
+- **Technology:** PHP 8.2 + Apache
+- **Access:**
+  - Visual interface: http://localhost:9191/
+  - JSON API: http://localhost:9191/api.php
+- **Database:** SQLite3 with 10 bird species
+- **Healthcheck:** Verifies that the API responds before starting other services
+- **Features:**
+  - Modern and responsive web interface
+  - Real-time search
+  - 10 high-quality bird images
+  - REST API for developers
 
-### 💻 Cliente Java (client-java)
-- **Función:** Consume la API y muestra los resultados en tabla en consola
-- **Tecnología:** OpenJDK 17 + librerías JSON y SQLite JDBC
-- **Ejecución:** Automática después de que la API esté lista
-- **Dependencias:** Se ejecuta solo después del healthcheck OK
+### 💻 Java Client (client-java)
+- **Function:** Consumes the API and displays results in a console table
+- **Technology:** OpenJDK 17 + JSON and SQLite JDBC libraries
+- **Execution:** Automatic after the API is ready
+- **Dependencies:** Runs only after healthcheck OK
 
-## 🌐 Guía de la Interfaz Web
+## 🌐 Web Interface Guide
 
-### ¿Qué es?
-La interfaz web es una aplicación moderna y fácil de usar para explorar las 10 especies de aves acuáticas de la Albufera. No requiere conocimientos técnicos.
+### What is it?
+The web interface is a modern and easy-to-use application to explore the 10 waterfowl species of the Albufera. No technical knowledge required.
 
-### ¿Cómo accedo?
-Simplemente abre en tu navegador: **http://localhost:9191/**
+### How do I access it?
+Simply open in your browser: **http://localhost:9191/**
 
-### Funcionalidades principales
+### Main features
 
-#### 1. **Galería de Aves**
-La página principal muestra un grid de tarjetas, cada una con:
-- 📷 **Imagen de la especie** (fotografía real de alta calidad)
-- 🏷️ **Nombre común** (ej: "Martinete")
-- 🔬 **Nombre científico** (ej: "Nycticorax nycticorax")
-- 📝 **Descripción** de la especie
-- 🆔 **ID** para referencia en la API
+#### 1. **Bird Gallery**
+The main page displays a grid of cards, each with:
+- 📷 **Species image** (high-quality real photograph)
+- 🏷️ **Common name** (e.g., "Martinete")
+- 🔬 **Scientific name** (e.g., "Nycticorax nycticorax")
+- 📝 **Description** of the species
+- 🆔 **ID** for API reference
 
-#### 2. **Buscador en Tiempo Real**
-En la parte superior hay un cuadro de búsqueda que te permite:
-- Escribir el nombre común o científico de un ave
-- Filtra automáticamente mientras escribes
-- Muestra el número de resultados encontrados
-- Puedes buscar por descripción también
+#### 2. **Real-time Search**
+At the top there is a search box that allows you to:
+- Type the common or scientific name of a bird
+- Automatically filters as you type
+- Shows the number of results found
+- You can also search by description
 
-#### 3. **Diseño Responsivo**
-- ✅ Funciona en **computadora de escritorio**
-- ✅ Funciona en **tablet**
-- ✅ Funciona en **móvil**
-- Las tarjetas se adaptan automáticamente al tamaño de la pantalla
+#### 3. **Responsive Design**
+- ✅ Works on **desktop computer**
+- ✅ Works on **tablet**
+- ✅ Works on **mobile**
+- Cards automatically adapt to screen size
 
-#### 4. **Efectos Visuales**
-- Al pasar el ratón sobre una tarjeta, se eleva ligeramente
-- Las imágenes hacen zoom al pasar el ratón
-- Transiciones suaves para una mejor experiencia
+#### 4. **Visual Effects**
+- When hovering over a card, it elevates slightly
+- Images zoom on hover
+- Smooth transitions for a better experience
 
-### 10 Aves Disponibles
+### 10 Available Birds
 
-| ID | Nombre Común | Nombre Científico | Imagen |
+| ID | Common Name | Scientific Name | Image |
 |---|---|---|---|
 | 1 | Martinete | *Nycticorax nycticorax* | ✅ |
 | 2 | Garza Real | *Ardea cinerea* | ✅ |
@@ -255,161 +255,161 @@ En la parte superior hay un cuadro de búsqueda que te permite:
 | 9 | Pato Colorado | *Netta rufina* | ✅ |
 | 10 | Aguilucho Lagunero | *Circus aeruginosus* | ✅ |
 
-### Tecnología de la Interfaz Web
+### Web Interface Technology
 
 **Frontend:**
-- HTML5 para estructura
-- CSS3 con diseño moderno y gradientes
-- JavaScript vanilla (sin dependencias externas)
-- Fetch API para comunicación con el servidor
+- HTML5 for structure
+- CSS3 with modern design and gradients
+- Vanilla JavaScript (no external dependencies)
+- Fetch API for server communication
 
 **Backend:**
-- PHP 8.2 con Apache
-- API REST que devuelve JSON
-- SQLite3 como base de datos
+- PHP 8.2 with Apache
+- REST API that returns JSON
+- SQLite3 as database
 
-**Características técnicas:**
-- Sin dependencias npm ni build tools
-- Carga de imágenes con lazy loading
-- Prevención de XSS (escapado de HTML)
-- Caché HTTP inteligente para imágenes
-- CORS habilitado para consumo desde otras aplicaciones
+**Technical features:**
+- No npm dependencies or build tools
+- Image loading with lazy loading
+- XSS prevention (HTML escaping)
+- Intelligent HTTP cache for images
+- CORS enabled for consumption from other applications
 
-## Comandos Útiles
+## Useful Commands
 
-### Gestión de servicios
+### Service management
 ```bash
-# Construir y arrancar todo
+# Build and start everything
 docker-compose up --build
 
-# Arrancar en segundo plano
+# Start in background
 docker-compose up -d
 
-# Ver logs en tiempo real
+# View logs in real time
 docker-compose logs -f
 
-# Ver logs de un servicio específico
+# View logs of a specific service
 docker-compose logs api-php
 docker-compose logs client-java
 
-# Detener servicios
+# Stop services
 docker-compose down
 
-# Detener y eliminar volúmenes
+# Stop and remove volumes
 docker-compose down -v
 
-# Reconstruir sin caché
+# Rebuild without cache
 docker-compose build --no-cache
 ```
 
-### Verificación
+### Verification
 ```bash
-# Verificar contenedores corriendo
+# Check running containers
 docker ps
 
-# Probar la API
+# Test the API
 curl http://localhost:9191/api.php
 
-# Entrar al contenedor de la API
+# Enter the API container
 docker-compose exec api-php sh
 
-# Entrar al contenedor del cliente
+# Enter the client container
 docker-compose exec client-java sh
 ```
 
-## Solución de Problemas
+## Troubleshooting
 
-### La interfaz web carga pero sin imágenes
+### Web interface loads but without images
 
-**Causa:** Caché del navegador. El navegador tiene las versiones antiguas de los archivos en caché.
+**Cause:** Browser cache. The browser has old versions of the files cached.
 
-**Solución:**
+**Solution:**
 
-**Opción 1: Limpiar caché del navegador (Recomendado)**
+**Option 1: Clear browser cache (Recommended)**
 ```bash
-1. Presiona: Ctrl+Shift+Delete (Windows/Linux) o Cmd+Shift+Delete (Mac)
-2. Selecciona "Vaciar caché"
-3. Presiona: Ctrl+F5 en http://localhost:9191/
+1. Press: Ctrl+Shift+Delete (Windows/Linux) or Cmd+Shift+Delete (Mac)
+2. Select "Clear cache"
+3. Press: Ctrl+F5 at http://localhost:9191/
 ```
 
-**Opción 2: Usar navegador privado/incógnito**
+**Option 2: Use private/incognito browser**
 ```bash
-1. Abre una ventana incógnita (Ctrl+Shift+N)
-2. Ve a http://localhost:9191/
+1. Open an incognito window (Ctrl+Shift+N)
+2. Go to http://localhost:9191/
 ```
 
-**Opción 3: Borrar caché de Docker**
+**Option 3: Clear Docker cache**
 ```bash
 docker-compose down -v
 docker-compose up --build
 ```
 
-### El puerto 9191 no responde
+### Port 9191 not responding
 
-**Causa:** Probablemente usaste `docker run` en lugar de `docker-compose`, o hay otro proceso usando el puerto.
+**Cause:** You probably used `docker run` instead of `docker-compose`, or there's another process using the port.
 
-**Solución:**
+**Solution:**
 ```bash
-# Detener todo
+# Stop everything
 docker stop $(docker ps -aq)
 
-# Verificar que el puerto está libre
-lsof -i :9191  # (en Linux/Mac)
-netstat -ano | findstr :9191  # (en Windows)
+# Verify that the port is free
+lsof -i :9191  # (on Linux/Mac)
+netstat -ano | findstr :9191  # (on Windows)
 
-# Usar docker-compose
+# Use docker-compose
 docker-compose up --build
 ```
 
 ### Error: "Cannot connect to the Docker daemon"
 ```bash
-# Asegúrate de que Docker Desktop está iniciado
+# Make sure Docker Desktop is started
 
-# En Linux/WSL
+# On Linux/WSL
 sudo systemctl start docker
-# o
+# or
 sudo service docker start
 ```
 
-### Error: "Permission denied" en scripts
+### Error: "Permission denied" on scripts
 ```bash
-# Dar permisos de ejecución
+# Give execution permissions
 chmod +x start.sh
 chmod +x run-docker.sh
 ```
 
 ### Error: "docker-compose: command not found"
 ```bash
-# Opción 1: Instalar docker-compose
+# Option 1: Install docker-compose
 sudo apt-get update
 sudo apt-get install docker-compose-plugin
 
-# Opción 2: Usar docker compose (sin guión)
+# Option 2: Use docker compose (without hyphen)
 docker compose up --build
 ```
 
-### La API responde pero el cliente falla
+### API responds but client fails
 ```bash
-# Ver logs del cliente
+# View client logs
 docker-compose logs client-java
 
-# Verificar conectividad entre contenedores
+# Check connectivity between containers
 docker-compose exec client-java ping api-php
 ```
 
-### Empezar de cero
+### Start from scratch
 ```bash
-# Eliminar todo (contenedores, imágenes, volúmenes)
+# Remove everything (containers, images, volumes)
 docker-compose down -v --rmi all
 
-# Reconstruir desde cero
+# Rebuild from scratch
 docker-compose build --no-cache
 docker-compose up
 ```
 
-## Base de Datos
+## Database
 
-### Esquema de la tabla `aves`
+### Schema of the `aves` table
 ```sql
 CREATE TABLE aves (
   id_ave INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -420,7 +420,7 @@ CREATE TABLE aves (
 );
 ```
 
-### Aves incluidas
+### Included birds
 1. Martinete (Nycticorax nycticorax)
 2. Garza Real (Ardea cinerea)
 3. Flamenco Común (Phoenicopterus roseus)
@@ -432,92 +432,92 @@ CREATE TABLE aves (
 9. Avetoro Común (Botaurus stellaris)
 10. Somormujo Lavanco (Podiceps cristatus)
 
-## Características Técnicas
+## Technical Features
 
-- **Portabilidad:** Funciona en Windows, Linux y macOS
-- **Aislamiento:** No contamina el sistema con dependencias
-- **Automatización:** Scripts para despliegue con un solo comando
-- **Healthchecks:** Asegura que la API está lista antes de iniciar el cliente
-- **Volúmenes:** Base de datos montada como read-only para seguridad
-- **Red privada:** Comunicación segura entre contenedores
-- **Variables de entorno:** Configuración flexible del cliente Java
+- **Portability:** Works on Windows, Linux and macOS
+- **Isolation:** Doesn't contaminate the system with dependencies
+- **Automation:** Scripts for one-command deployment
+- **Healthchecks:** Ensures the API is ready before starting the client
+- **Volumes:** Database mounted as read-only for security
+- **Private network:** Secure communication between containers
+- **Environment variables:** Flexible Java client configuration
 
-## Desarrollo
+## Development
 
-### Modificar la API PHP
-1. Edita `php/api.php`
-2. Reinicia el servicio: `docker-compose restart api-php`
+### Modify the PHP API
+1. Edit `php/api.php`
+2. Restart the service: `docker-compose restart api-php`
 
-### Modificar el cliente Java
-1. Edita `java/BuscadorAvesAPI.java`
-2. Reconstruye: `docker-compose build client-java`
-3. Ejecuta: `docker-compose up client-java`
+### Modify the Java client
+1. Edit `java/BuscadorAvesAPI.java`
+2. Rebuild: `docker-compose build client-java`
+3. Run: `docker-compose up client-java`
 
-### Modificar la base de datos
-1. Edita `db/albuaves.db` con un cliente SQLite
-2. Reinicia el servicio: `docker-compose restart api-php`
+### Modify the database
+1. Edit `db/albuaves.db` with an SQLite client
+2. Restart the service: `docker-compose restart api-php`
 
-## Librerías Utilizadas
+## Used Libraries
 
-- **JSON para Java:** https://github.com/stleary/JSON-java (json-20250517.jar)
-- **SQLite JDBC:** Driver JDBC para SQLite (sqlite-jdbc.jar)
+- **JSON for Java:** https://github.com/stleary/JSON-java (json-20250517.jar)
+- **SQLite JDBC:** JDBC driver for SQLite (sqlite-jdbc.jar)
 
-## Características Principales ✨
+## Main Features ✨
 
-### Interfaz Web
-- ✅ **Interfaz moderna y responsiva** - Funciona en cualquier dispositivo
-- ✅ **Galería visual** - 10 tarjetas con imágenes de aves reales
-- ✅ **Buscador en tiempo real** - Filtra aves mientras escribes
-- ✅ **Información completa** - Nombre común, científico y descripción
-- ✅ **Diseño atractivo** - Colores naturales y efectos visuales
+### Web Interface
+- ✅ **Modern and responsive interface** - Works on any device
+- ✅ **Visual gallery** - 10 cards with real bird images
+- ✅ **Real-time search** - Filter birds as you type
+- ✅ **Complete information** - Common name, scientific name and description
+- ✅ **Attractive design** - Natural colors and visual effects
 
-### API REST
-- ✅ **Endpoints JSON** - Acceso programático a todos los datos
-- ✅ **CORS habilitado** - Consumible desde cualquier aplicación
-- ✅ **Documentación clara** - Fácil de usar
-- ✅ **SQLite3** - Base de datos ligera y fiable
+### REST API
+- ✅ **JSON endpoints** - Programmatic access to all data
+- ✅ **CORS enabled** - Consumable from any application
+- ✅ **Clear documentation** - Easy to use
+- ✅ **SQLite3** - Lightweight and reliable database
 
-### Base de Datos
-- ✅ **10 especies documentadas** - Aves acuáticas de la Albufera
-- ✅ **Información completa** - Nombres, descripciones
-- ✅ **Tablas de avistamientos** - Registro de observaciones
-- ✅ **Datos pre-poblados** - Listo para usar
+### Database
+- ✅ **10 documented species** - Waterfowl from the Albufera
+- ✅ **Complete information** - Names, descriptions
+- ✅ **Sighting tables** - Record of observations
+- ✅ **Pre-populated data** - Ready to use
 
-### Seguridad y Calidad
-- ✅ **Prevención de XSS** - Escapado de HTML en interfaz
-- ✅ **Healthcheck** - Verificación automática de servicios
-- ✅ **Aislamiento** - Contenedores Docker separados
-- ✅ **Red privada** - Comunicación segura entre servicios
+### Security and Quality
+- ✅ **XSS prevention** - HTML escaping in interface
+- ✅ **Healthcheck** - Automatic service verification
+- ✅ **Isolation** - Separate Docker containers
+- ✅ **Private network** - Secure communication between services
 
-## Notas Importantes
+## Important Notes
 
-1. **Usa docker-compose** - No docker run directamente
-2. **El puerto 9191 debe estar libre** en tu sistema
-3. **La API tarda unos segundos** en estar lista (healthcheck automático)
-4. **El cliente Java se ejecuta automáticamente** cuando la API está lista
-5. **Los scripts .sh requieren permisos de ejecución** en Linux/Mac
-6. **Interfaz web optimizada** - Sin dependencias externas (npm, build tools)
-7. **Imágenes de alta calidad** - Incluidas directamente en el proyecto
+1. **Use docker-compose** - Not docker run directly
+2. **Port 9191 must be free** on your system
+3. **The API takes a few seconds** to be ready (automatic healthcheck)
+4. **The Java client runs automatically** when the API is ready
+5. **The .sh scripts require execution permissions** on Linux/Mac
+6. **Optimized web interface** - No external dependencies (npm, build tools)
+7. **High-quality images** - Included directly in the project
 
-## Cambios en la Versión 2.0
+## Changes in Version 2.0
 
-**Nuevas características añadidas (Noviembre 2025):**
-- 🌐 Interfaz web visual completa
-- 📷 10 imágenes de aves de alta calidad
-- 🔍 Buscador en tiempo real
-- 📱 Diseño responsivo (móvil, tablet, escritorio)
-- 🎨 Estilos CSS modernos con gradientes
-- ⚙️ JavaScript puro sin dependencias
-- 🗄️ Base de datos actualizada con URLs de imágenes
-- 📚 Documentación completa
+**New features added (November 2025):**
+- 🌐 Complete visual web interface
+- 📷 10 high-quality bird images
+- 🔍 Real-time search
+- 📱 Responsive design (mobile, tablet, desktop)
+- 🎨 Modern CSS styles with gradients
+- ⚙️ Pure JavaScript without dependencies
+- 🗄️ Updated database with image URLs
+- 📚 Complete documentation
 
-## Licencia
+## License
 
-Proyecto educativo para el módulo de Desarrollo de Aplicaciones Multiplataforma (DAM).
+Educational project for the Multiplatform Application Development (DAM) module.
 
 ---
 
-**Versión:** 2.0
-**Última actualización:** 11 de noviembre de 2025
-**Autor:** Sistema Albuaves
-**Estado:** ✅ Producción
+**Version:** 2.0
+**Last update:** November 11, 2025
+**Author:** Albuaves System
+**Status:** ✅ Production

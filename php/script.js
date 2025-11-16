@@ -1,13 +1,13 @@
-// Variables globales
+// Global variables
 let allBirds = [];
 
-// Inicializar cuando el DOM esté listo
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     loadBirds();
     setupSearch();
 });
 
-// Cargar aves desde la API
+// Load birds from the API
 async function loadBirds() {
     const birdsGrid = document.getElementById('birdsGrid');
 
@@ -15,7 +15,7 @@ async function loadBirds() {
         const response = await fetch('api.php');
 
         if (!response.ok) {
-            throw new Error('Error en la respuesta de la API');
+            throw new Error('Error in API response');
         }
 
         allBirds = await response.json();
@@ -24,38 +24,38 @@ async function loadBirds() {
             displayBirds(allBirds);
             updateResultCount(allBirds.length);
         } else {
-            birdsGrid.innerHTML = '<div class="no-results"><h2>No se encontraron aves</h2></div>';
+            birdsGrid.innerHTML = '<div class="no-results"><h2>No birds found</h2></div>';
         }
     } catch (error) {
-        console.error('Error al cargar las aves:', error);
-        birdsGrid.innerHTML = `<div class="no-results"><h2>Error al cargar las aves</h2><p>${error.message}</p></div>`;
+        console.error('Error loading birds:', error);
+        birdsGrid.innerHTML = `<div class="no-results"><h2>Error loading birds</h2><p>${error.message}</p></div>`;
     }
 }
 
-// Mostrar las aves en el grid
+// Display birds in the grid
 function displayBirds(birds) {
     const birdsGrid = document.getElementById('birdsGrid');
 
     if (birds.length === 0) {
-        birdsGrid.innerHTML = '<div class="no-results"><h2>🔍 No se encontraron resultados</h2><p>Intenta con otro término de búsqueda</p></div>';
+        birdsGrid.innerHTML = '<div class="no-results"><h2>🔍 No results found</h2><p>Try another search term</p></div>';
         return;
     }
 
     birdsGrid.innerHTML = birds.map(bird => createBirdCard(bird)).join('');
 }
 
-// Crear tarjeta de ave
+// Create bird card
 function createBirdCard(bird) {
-    // Construir URL de la imagen con manejo de rutas
+    // Build image URL with path handling
     let imageUrl = bird.imagen_url;
-    // Limpiar dobles barras
+    // Clean double slashes
     imageUrl = imageUrl.replace(/\/+/g, '/');
-    // Si comienza con ./, convertirlo a una ruta relativa válida
+    // If it starts with ./, convert it to a valid relative path
     if (imageUrl.startsWith('./')) {
         imageUrl = imageUrl.substring(2);
     }
 
-    // Añadir parámetro de versión para forzar recarga y evitar caché
+    // Add version parameter to force reload and avoid cache
     const cacheBreaker = '?v=' + new Date().getTime();
     imageUrl = imageUrl + cacheBreaker;
 
@@ -76,7 +76,7 @@ function createBirdCard(bird) {
     `;
 }
 
-// Configurar búsqueda
+// Setup search
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
 
@@ -103,17 +103,17 @@ function setupSearch() {
     });
 }
 
-// Actualizar contador de resultados
+// Update result counter
 function updateResultCount(count) {
     const resultCount = document.getElementById('resultCount');
     if (count === 0) {
-        resultCount.textContent = 'Sin resultados';
+        resultCount.textContent = 'No results';
     } else {
-        resultCount.textContent = `${count} ave${count !== 1 ? 's' : ''}`;
+        resultCount.textContent = `${count} bird${count !== 1 ? 's' : ''}`;
     }
 }
 
-// Escapar HTML para prevenir XSS
+// Escape HTML to prevent XSS
 function escapeHtml(text) {
     const map = {
         '&': '&amp;',

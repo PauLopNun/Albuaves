@@ -1,38 +1,38 @@
 #!/bin/bash
 
 echo "=========================================="
-echo "  Prueba de la API Albuaves"
+echo "  Testing Albuaves API"
 echo "=========================================="
 echo ""
 
-# Esperar un momento para que la API esté lista
-echo "Esperando 3 segundos para que la API esté lista..."
+# Wait a moment for the API to be ready
+echo "Waiting 3 seconds for the API to be ready..."
 sleep 3
 
 echo ""
-echo "Probando endpoint: http://localhost:9191/api.php"
+echo "Testing endpoint: http://localhost:9191/api.php"
 echo ""
 
-# Probar la API con curl
+# Test the API with curl
 if command -v curl &> /dev/null; then
-    echo "Resultado:"
+    echo "Result:"
     echo "----------------------------------------"
     curl -s http://localhost:9191/api.php | head -n 20
     echo ""
     echo "----------------------------------------"
     echo ""
 
-    # Verificar si la API respondió
+    # Verify if the API responded
     if [ $? -eq 0 ]; then
-        echo "✅ La API está funcionando correctamente en http://localhost:9191/api.php"
+        echo "✅ The API is working correctly at http://localhost:9191/api.php"
     else
-        echo "❌ Error: La API no responde. Verifica que Docker esté corriendo."
+        echo "❌ Error: The API is not responding. Verify that Docker is running."
         echo ""
-        echo "Ejecuta: docker-compose ps"
-        echo "Deberías ver el contenedor 'albuaves-api' corriendo."
+        echo "Run: docker-compose ps"
+        echo "You should see the 'albuaves-api' container running."
     fi
 else
-    echo "⚠️  curl no está instalado. Prueba en tu navegador:"
+    echo "⚠️  curl is not installed. Try in your browser:"
     echo "   http://localhost:9191/api.php"
 fi
 

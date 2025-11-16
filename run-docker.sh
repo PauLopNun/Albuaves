@@ -1,86 +1,86 @@
 #!/bin/bash
 
-set -e  # Salir si hay algún error
+set -e  # Exit if any error occurs
 
 echo "======================================"
-echo "  Iniciando Albuaves con Docker"
+echo "  Starting Albuaves with Docker"
 echo "======================================"
 echo ""
 
-# Detener y limpiar contenedores anteriores
-echo "[1/4] Limpiando contenedores anteriores..."
+# Stop and clean previous containers
+echo "[1/4] Cleaning previous containers..."
 docker-compose down 2>/dev/null || true
 
-# Construir las imágenes
+# Build images
 echo ""
-echo "[2/4] Construyendo imágenes Docker..."
+echo "[2/4] Building Docker images..."
 if ! docker-compose build; then
     echo ""
-    echo "ERROR: Fallo al construir las imágenes Docker"
+    echo "ERROR: Failed to build Docker images"
     exit 1
 fi
 
-# Iniciar los servicios
+# Start services
 echo ""
-echo "[3/4] Iniciando servicios..."
+echo "[3/4] Starting services..."
 if ! docker-compose up -d api-php; then
     echo ""
-    echo "ERROR: Fallo al iniciar el servicio API"
+    echo "ERROR: Failed to start API service"
     exit 1
 fi
 
-# Esperar a que la API esté lista
+# Wait for API to be ready
 echo ""
-echo "[4/4] Esperando a que la API esté lista..."
-echo "📡 API disponible en: http://localhost:9191/api.php"
-echo "Esperando healthcheck..."
+echo "[4/4] Waiting for API to be ready..."
+echo "📡 API available at: http://localhost:9191/api.php"
+echo "Waiting for healthcheck..."
 sleep 10
 
-# Ejecutar el cliente Java
+# Run Java client
 echo ""
 echo "======================================"
-echo "  Ejecutando cliente Java"
+echo "  Running Java client"
 echo "======================================"
 echo ""
 docker-compose up client-java
 
 echo ""
 echo "======================================"
-echo "  Proceso completado"
+echo "  Process completed"
 echo "======================================"
 echo ""
 
-# Mensaje visual mejorado con enlaces y ejemplos
+# Improved visual message with links and examples
 echo "╔════════════════════════════════════════════════════════════════════╗"
-echo "║                   ✅ ALBUAVES INICIADO CORRECTAMENTE              ║"
+echo "║                   ✅ ALBUAVES STARTED SUCCESSFULLY                ║"
 echo "╚════════════════════════════════════════════════════════════════════╝"
 echo ""
-echo "📍 ACCESO A LA APLICACIÓN:"
+echo "📍 APPLICATION ACCESS:"
 echo ""
-echo "🌐 Interfaz Web (Usuarios finales):"
+echo "🌐 Web Interface (End users):"
 echo "   URL: http://localhost:9191"
-echo "   Descripción: Galería visual de aves acuáticas"
+echo "   Description: Visual gallery of waterfowl"
 echo ""
-echo "💻 API REST (Desarrolladores):"
+echo "💻 REST API (Developers):"
 echo "   Base URL: http://localhost:9191/api.php"
-echo "   Descripción: Acceso programático a la base de datos de aves"
+echo "   Description: Programmatic access to the bird database"
 echo ""
 echo "────────────────────────────────────────────────────────────────────"
 echo ""
-echo "📝 EJEMPLOS DE USO:"
+echo "📝 USAGE EXAMPLES:"
 echo ""
-echo "  • Obtener todas las aves:"
+echo "  • Get all birds:"
 echo "    curl 'http://localhost:9191/api.php?action=list'"
 echo ""
-echo "  • Consultar un ave específica (ID=1):"
+echo "  • Query a specific bird (ID=1):"
 echo "    curl 'http://localhost:9191/api.php?action=get&id=1'"
 echo ""
-echo "  • Ver respuesta formateada (ID=1):"
+echo "  • View formatted response (ID=1):"
 echo "    curl -s 'http://localhost:9191/api.php?action=get&id=1' | jq ."
 echo ""
 echo "────────────────────────────────────────────────────────────────────"
 echo ""
-echo "🛑 Para detener los servicios, ejecuta:"
+echo "🛑 To stop the services, run:"
 echo "   docker-compose down"
 echo ""
 

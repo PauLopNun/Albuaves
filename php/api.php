@@ -4,11 +4,11 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-// Verificar que el archivo de base de datos existe
+// Verify that the database file exists
 $dbPath = 'db/albuaves.db';
 if (!file_exists($dbPath)) {
     http_response_code(500);
-    echo json_encode(["error" => "Base de datos no encontrada en: $dbPath"]);
+    echo json_encode(["error" => "Database not found at: $dbPath"]);
     exit;
 }
 
@@ -19,7 +19,7 @@ try {
     $db->enableExceptions(true);
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(["error" => "Error al conectar con la base de datos: " . $e->getMessage()]);
+    echo json_encode(["error" => "Error connecting to the database: " . $e->getMessage()]);
     exit;
 }
 
@@ -27,7 +27,7 @@ switch ($method) {
     case 'GET':
         try {
             if (isset($_GET['id'])) {
-                // Obtener un ave por ID
+                // Get a bird by ID
                 $id = $_GET['id'];
                 $stmt = $db->prepare("SELECT * FROM aves WHERE id_ave = :id");
                 $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
@@ -38,10 +38,10 @@ switch ($method) {
                     echo json_encode($ave);
                 } else {
                     http_response_code(404);
-                    echo json_encode(["error" => "Ave no encontrada"]);
+                    echo json_encode(["error" => "Bird not found"]);
                 }
             } else {
-                // Obtener todas las aves
+                // Get all birds
                 $result = $db->query("SELECT * FROM aves");
                 $aves = [];
                 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
@@ -51,18 +51,18 @@ switch ($method) {
             }
         } catch (Exception $e) {
             http_response_code(500);
-            echo json_encode(["error" => "Error en la consulta: " . $e->getMessage()]);
+            echo json_encode(["error" => "Query error: " . $e->getMessage()]);
         }
         break;
 
     case 'OPTIONS':
-        // Respuesta para peticiones preflight CORS
+        // Response for CORS preflight requests
         http_response_code(200);
         break;
 
     default:
         http_response_code(405);
-        echo json_encode(["error" => "Método no soportado: $method"]);
+        echo json_encode(["error" => "Unsupported method: $method"]);
         break;
 }
 

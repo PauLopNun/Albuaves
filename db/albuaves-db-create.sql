@@ -1,4 +1,4 @@
--- Crear tabla aves
+-- Create birds table
 CREATE TABLE aves (
   id_ave INTEGER PRIMARY KEY AUTOINCREMENT,
   nombre_comun TEXT NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE aves (
   imagen_url TEXT
 );
 
--- Crear tabla avistamientos
+-- Create sightings table
 CREATE TABLE avistamientos (
   id_avistamiento INTEGER PRIMARY KEY AUTOINCREMENT,
   id_ave INTEGER NOT NULL,
