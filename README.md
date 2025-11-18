@@ -80,7 +80,7 @@ This is the easiest and most visual way to explore the birds. You will see:
 **Live Web Interface (English):**
 
 <p align="center">
-  <img src="docimgs/web-interface-screenshot.jpg" alt="Web Interface - Albuaves Bird Gallery" width="700">
+  <img src="docimgs/web-interface-screenshot.jpg" alt="Web Interface - Albuaves Bird Gallery" width="400">
 </p>
 
 ### 📡 API Response - Example
@@ -90,7 +90,7 @@ Access the API directly in your browser: `http://localhost:9191/api.php` or via 
 **Screenshot - API in Browser:**
 
 <p align="center">
-  <img src="docimgs/api-browser-screenshot.png" alt="API JSON Response" width="600">
+  <img src="docimgs/api-browser-screenshot.png" alt="API JSON Response" width="400">
 </p>
 
 **Example JSON Response:**
@@ -123,7 +123,7 @@ The Java client consumes the API and displays results in a formatted table:
 **Screenshot - Java Client Running:**
 
 <p align="center">
-  <img src="docimgs/java-client-screenshot.png" alt="Java Client Terminal Output" width="650">
+  <img src="docimgs/java-client-screenshot.png" alt="Java Client Terminal Output" width="400">
 </p>
 
 **Example Output:**
