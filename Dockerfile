@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Habilitar módulos de Apache necesarios
-RUN a2enmod rewrite
+RUN a2enmod rewrite headers
 
 # Copiar archivos PHP (API + interfaz web)
 COPY php/ /var/www/html/
