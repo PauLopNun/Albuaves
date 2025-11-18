@@ -61,6 +61,61 @@ This is the easiest and most visual way to explore the birds. You will see:
 
 ![Web Interface - Albuaves Bird Gallery](docimgs/Albuaves%20-%20Sistema%20de%20Gestión%20de%20Aves-1.png)
 
+### 📡 API Response - Example
+
+Access the API directly in your browser: `http://localhost:9191/api.php`
+
+**Example JSON Response:**
+```json
+[
+  {
+    "id_ave": 1,
+    "nombre_comun": "Martinete",
+    "nombre_cientifico": "Nycticorax nycticorax",
+    "descripcion": "Ave nocturna de plumaje blanco y negro, común en humedales.",
+    "imagen_url": "imgs/aves/martinete.jpg"
+  },
+  {
+    "id_ave": 2,
+    "nombre_comun": "Garza Real",
+    "nombre_cientifico": "Ardea cinerea",
+    "descripcion": "Grande y elegante, con plumaje gris y pico largo.",
+    "imagen_url": "imgs/aves/garza_real.jpg"
+  }
+  // ... (8 more birds)
+]
+```
+
+**Full response available at:** [`docimgs/api-response-example.json`](docimgs/api-response-example.json)
+
+### 💻 Java Client - Terminal Output
+
+The Java client consumes the API and displays results in a formatted table:
+
+```
+API Response:
+🌿 List of birds in Albufera 🌿
+
++----+----------------+---------------------+----------------+-----------------------+
+| ID |      Name      |      Scientific     |   Description  | Img    |
++----+----------------+---------------------+----------------+-----------------------+
+|  1 | Martinete      | Nycticorax nyctico… | Ave nocturna d… | imgs/aves/martinete.j…|
+|  2 | Garza Real     | Ardea cinerea       | Grande y elega… | imgs/aves/garza_real.…|
+|  3 | Flamenco Común | Phoenicopterus ros… | Ave rosada de … | imgs/aves/flamenco_co…|
+|  4 | Ánade Real     | Anas platyrhynchos  | Pato común, ma… | imgs/aves/anade_real.…|
+|  5 | Charrán Común  | Sterna hirundo      | Ave marina de … | imgs/aves/charran_com…|
+|  6 | Somormujo Lava…| Podiceps cristatus  | Elegante nadad… | imgs/aves/somormujo_l…|
+|  7 | Calamón Común  | Porphyrio porphyrio | Ave de plumaje… | imgs/aves/calamon_com…|
+|  8 | Avetoro Común  | Botaurus stellaris  | Ave esquiva de… | imgs/aves/avetoro_com…|
+|  9 | Pato Colorado  | Netta rufina        | Macho con cabe… | imgs/aves/pato_colora…|
+| 10 | Aguilucho Lago…| Circus aeruginosus  | Rapaz de alas … | imgs/aves/aguilucho_l…|
++----+----------------+---------------------+----------------+-----------------------+
+```
+
+**Full output available at:** [`docimgs/java-client-output.txt`](docimgs/java-client-output.txt)
+
+---
+
 ### What you will see in the interface
 
 - **Header:** Title "🦅 Albuaves" with description
@@ -144,6 +199,161 @@ UP02-Proyecto-DAM-Albuaves/
     ├── json-20250517.jar               # JSON parser for Java
     └── sqlite-jdbc.jar                 # SQLite JDBC driver
 ```
+
+## 🛠️ Tecnologías Utilizadas
+
+Este proyecto integra múltiples tecnologías modernas para ofrecer una solución completa y profesional:
+
+### Backend y API
+
+| Tecnología | Versión | Descripción | Enlace Oficial |
+|-----------|---------|-------------|----------------|
+| **PHP** | 8.2 | Lenguaje de servidor para la API REST | [php.net](https://www.php.net/) |
+| **Apache** | 2.4 | Servidor web HTTP | [httpd.apache.org](https://httpd.apache.org/) |
+| **SQLite** | 3.x | Base de datos relacional embebida | [sqlite.org](https://www.sqlite.org/) |
+
+### Cliente Java
+
+| Tecnología | Versión | Descripción | Enlace Oficial |
+|-----------|---------|-------------|----------------|
+| **Java** | OpenJDK 17 | Plataforma de desarrollo | [openjdk.org](https://openjdk.org/) |
+| **JSON-java** | 20250517 | Librería para procesamiento JSON | [github.com/stleary/JSON-java](https://github.com/stleary/JSON-java) |
+| **SQLite JDBC** | Latest | Driver JDBC para SQLite | [github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) |
+
+### Frontend
+
+| Tecnología | Descripción | Documentación |
+|-----------|-------------|---------------|
+| **HTML5** | Estructura semántica moderna | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML) |
+| **CSS3** | Estilos con gradientes y responsive design | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS) |
+| **JavaScript (ES6+)** | Lógica de interfaz (Fetch API, DOM) | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+
+### Infraestructura
+
+| Tecnología | Versión | Descripción | Enlace Oficial |
+|-----------|---------|-------------|----------------|
+| **Docker** | 20.10+ | Plataforma de contenedorización | [docker.com](https://www.docker.com/) |
+| **Docker Compose** | 2.x | Orquestación de servicios multi-contenedor | [docs.docker.com/compose](https://docs.docker.com/compose/) |
+
+---
+
+## 📜 Licencias
+
+Todas las tecnologías utilizadas en este proyecto son de código abierto o gratuitas:
+
+| Componente | Licencia | Tipo | Detalles |
+|-----------|----------|------|----------|
+| **PHP 8.2** | PHP License v3.01 | Open Source | [license.php.net](https://www.php.net/license/3_01.txt) |
+| **Apache 2.4** | Apache License 2.0 | Open Source | [apache.org/licenses](https://www.apache.org/licenses/LICENSE-2.0) |
+| **SQLite** | Public Domain | Dominio Público | [sqlite.org/copyright.html](https://www.sqlite.org/copyright.html) |
+| **OpenJDK 17** | GPL v2 + Classpath Exception | Open Source | [openjdk.org/legal](https://openjdk.org/legal/) |
+| **JSON-java** | JSON License (MIT compatible) | Open Source | [github.com/stleary/JSON-java](https://github.com/stleary/JSON-java/blob/master/LICENSE) |
+| **SQLite JDBC** | Apache License 2.0 | Open Source | [github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc/blob/master/LICENSE) |
+| **Docker** | Apache License 2.0 | Open Source | [docker.com/legal](https://www.docker.com/legal/) |
+
+**Licencia del Proyecto:** Este es un proyecto educativo para el módulo DAM (Desarrollo de Aplicaciones Multiplataforma). Todo el código desarrollado está disponible bajo licencia educativa.
+
+---
+
+## 💡 Motivación Técnica
+
+### ¿Por qué estas tecnologías?
+
+#### **1. PHP + Apache + SQLite (Backend)**
+
+**Decisión:** Stack LAMP simplificado sin MySQL.
+
+**Motivaciones:**
+- ✅ **SQLite en lugar de MySQL:** Para un proyecto educativo con datos limitados (10 aves), SQLite es perfecto:
+  - Sin necesidad de servidor de base de datos adicional
+  - Base de datos en un solo archivo portable
+  - Ideal para desarrollo y demos
+  - Consumo mínimo de recursos
+- ✅ **PHP 8.2:** Lenguaje maduro y ampliamente soportado para APIs REST
+  - Sintaxis sencilla para principiantes
+  - PDO para acceso a base de datos de forma segura
+  - Gran comunidad y documentación
+- ✅ **Apache:** Servidor web estándar de la industria
+  - Fácil configuración con .htaccess
+  - Excelente integración con PHP
+  - URL rewriting para API amigable
+
+#### **2. Java 17 (Cliente)**
+
+**Decisión:** Cliente en Java puro con librerías mínimas.
+
+**Motivaciones:**
+- ✅ **Java 17 LTS:** Versión con soporte a largo plazo
+  - Rendimiento mejorado vs versiones anteriores
+  - APIs modernas (HttpClient, var, records)
+  - Ampliamente utilizado en entornos empresariales
+- ✅ **JSON-java:** Librería estándar para JSON
+  - Simple y directa
+  - No requiere configuración compleja
+  - Ideal para aprendizaje
+- ✅ **Sin frameworks pesados:** Para demostrar conceptos fundamentales
+  - Los estudiantes entienden HTTP desde cero
+  - No se oculta la complejidad detrás de abstracciones
+
+#### **3. Docker + Docker Compose (Infraestructura)**
+
+**Decisión:** Containerización completa del proyecto.
+
+**Motivaciones:**
+- ✅ **Portabilidad:** "Funciona en mi máquina" → "Funciona en todas las máquinas"
+  - Windows, Linux, macOS sin cambios
+  - No requiere instalar PHP, Java, Apache localmente
+- ✅ **Aislamiento:** Cada servicio en su contenedor
+  - Sin contaminación del sistema host
+  - Fácil limpieza con `docker-compose down`
+- ✅ **Aprendizaje:** Los estudiantes aprenden Docker, habilidad muy demandada
+  - Dockerfile para configuración de imágenes
+  - docker-compose.yml para orquestación
+  - Healthchecks para dependencias entre servicios
+- ✅ **Reproducibilidad:** El entorno es idéntico para todos
+  - Profesor y estudiantes ven exactamente lo mismo
+  - No hay errores por diferencias de versiones
+
+#### **4. Frontend Vanilla (HTML + CSS + JS puro)**
+
+**Decisión:** Sin frameworks frontend (React, Vue, Angular).
+
+**Motivaciones:**
+- ✅ **Simplicidad:** Foco en los fundamentos
+  - Entender DOM, eventos, Fetch API
+  - No requiere npm, webpack, build tools
+  - Código legible para principiantes
+- ✅ **Rendimiento:** Sin overhead de frameworks
+  - Carga instantánea
+  - No hay miles de dependencias
+- ✅ **Aprendizaje:** Antes de usar frameworks, entender la base
+  - Manipulación del DOM nativa
+  - Event listeners
+  - Promesas y async/await
+
+### Decisiones de Diseño Clave
+
+1. **API REST en lugar de GraphQL:**
+   - REST es más simple y estándar
+   - Mejor para enseñar HTTP methods (GET, POST, PUT, DELETE)
+   - No requiere schemas complejos
+
+2. **Healthcheck en Docker Compose:**
+   - El cliente Java espera a que la API esté lista
+   - Evita errores de conexión al inicio
+   - Enseña buenas prácticas de microservicios
+
+3. **Scripts multiplataforma (`.sh` y `.bat`):**
+   - Inclusión: Estudiantes con Windows, Linux o Mac
+   - Automatización: Un solo comando para iniciar todo
+   - Aprendizaje: Scripting básico en diferentes plataformas
+
+4. **Imágenes reales de aves incluidas:**
+   - Proyecto más atractivo visualmente
+   - Datos realistas (no "Foo", "Bar")
+   - Aprendizaje sobre gestión de assets
+
+---
 
 ## Architecture
 
@@ -457,10 +667,19 @@ CREATE TABLE aves (
 1. Edit `db/albuaves.db` with an SQLite client
 2. Restart the service: `docker-compose restart api-php`
 
-## Used Libraries
+## 📚 Java Libraries Reference
 
-- **JSON for Java:** https://github.com/stleary/JSON-java (json-20250517.jar)
-- **SQLite JDBC:** JDBC driver for SQLite (sqlite-jdbc.jar)
+Las librerías Java utilizadas se encuentran en el directorio `libs/`:
+
+- **json-20250517.jar** - JSON processing for Java
+  - Repository: https://github.com/stleary/JSON-java
+  - License: JSON License (MIT compatible)
+
+- **sqlite-jdbc.jar** - SQLite JDBC Driver
+  - Repository: https://github.com/xerial/sqlite-jdbc
+  - License: Apache License 2.0
+
+Para más detalles sobre tecnologías y licencias, consulta las secciones [🛠️ Tecnologías Utilizadas](#-tecnologías-utilizadas) y [📜 Licencias](#-licencias).
 
 ## Main Features ✨
 

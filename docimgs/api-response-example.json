@@ -1,0 +1,72 @@
+[
+  {
+    "id_ave": 1,
+    "nombre_comun": "Martinete",
+    "nombre_cientifico": "Nycticorax nycticorax",
+    "descripcion": "Ave nocturna de plumaje blanco y negro, común en humedales.",
+    "imagen_url": "imgs/aves/martinete.jpg"
+  },
+  {
+    "id_ave": 2,
+    "nombre_comun": "Garza Real",
+    "nombre_cientifico": "Ardea cinerea",
+    "descripcion": "Grande y elegante, con plumaje gris y pico largo.",
+    "imagen_url": "imgs/aves/garza_real.jpg"
+  },
+  {
+    "id_ave": 3,
+    "nombre_comun": "Flamenco Común",
+    "nombre_cientifico": "Phoenicopterus roseus",
+    "descripcion": "Ave rosada de patas largas, típica de zonas salinas.",
+    "imagen_url": "imgs/aves/flamenco_comun.jpg"
+  },
+  {
+    "id_ave": 4,
+    "nombre_comun": "Ánade Real",
+    "nombre_cientifico": "Anas platyrhynchos",
+    "descripcion": "Pato común, macho con cabeza verde y pico amarillo.",
+    "imagen_url": "imgs/aves/anade_real.jpg"
+  },
+  {
+    "id_ave": 5,
+    "nombre_comun": "Charrán Común",
+    "nombre_cientifico": "Sterna hirundo",
+    "descripcion": "Ave marina de vuelo ágil, pico rojo y negro.",
+    "imagen_url": "imgs/aves/charran_comun.jpg"
+  },
+  {
+    "id_ave": 6,
+    "nombre_comun": "Somormujo Lavanco",
+    "nombre_cientifico": "Podiceps cristatus",
+    "descripcion": "Elegante nadador con cresta y cuello largo.",
+    "imagen_url": "imgs/aves/somormujo_lavanco.jpg"
+  },
+  {
+    "id_ave": 7,
+    "nombre_comun": "Calamón Común",
+    "nombre_cientifico": "Porphyrio porphyrio",
+    "descripcion": "Ave de plumaje azul intenso, pico y patas rojas.",
+    "imagen_url": "imgs/aves/calamon_comun.jpg"
+  },
+  {
+    "id_ave": 8,
+    "nombre_comun": "Avetoro Común",
+    "nombre_cientifico": "Botaurus stellaris",
+    "descripcion": "Ave esquiva de plumaje pardo, similar a un búho.",
+    "imagen_url": "imgs/aves/avetoro_comun.jpg"
+  },
+  {
+    "id_ave": 9,
+    "nombre_comun": "Pato Colorado",
+    "nombre_cientifico": "Netta rufina",
+    "descripcion": "Macho con cabeza roja y pico rojo brillante.",
+    "imagen_url": "imgs/aves/pato_colorado.jpg"
+  },
+  {
+    "id_ave": 10,
+    "nombre_comun": "Aguilucho Lagunero",
+    "nombre_cientifico": "Circus aeruginosus",
+    "descripcion": "Rapaz de alas largas, habita en zonas húmedas.",
+    "imagen_url": "imgs/aves/aguilucho_lagunero.jpg"
+  }
+]
