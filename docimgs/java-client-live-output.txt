@@ -1,0 +1,22 @@
+$ API_URL="https://albuaves.onrender.com/api.php" java -cp ".;../libs/json-20250517.jar;../libs/sqlite-jdbc.jar" BuscadorAvesAPI
+
+API Response:
+🌿 List of birds in Albufera 🌿
+
++----+-------------------------+-------------------------+------------------------------+-----------------------+
+| ID |      Common Name        |    Scientific Name      |        Description           | Image    |
++----+-------------------------+-------------------------+------------------------------+-----------------------+
+|  1 | Black-crowned Night He… | Nycticorax nycticorax   | Nocturnal bird with black a… | imgs/aves/martinete.… |
+|  2 | Grey Heron              | Ardea cinerea           | Large and elegant, with gre… | imgs/aves/garza_real… |
+|  3 | Greater Flamingo        | Phoenicopterus roseus   | Pink bird with long legs, t… | imgs/aves/flamenco_c… |
+|  4 | Mallard                 | Anas platyrhynchos      | Common duck, male with gree… | imgs/aves/anade_real… |
+|  5 | Common Tern             | Sterna hirundo          | Seabird with agile flight, … | imgs/aves/charran_co… |
+|  6 | Great Crested Grebe     | Podiceps cristatus      | Elegant swimmer with crest … | imgs/aves/somormujo_… |
+|  7 | Purple Swamphen         | Porphyrio porphyrio     | Bird with intense blue plum… | imgs/aves/calamon_co… |
+|  8 | Eurasian Bittern        | Botaurus stellaris      | Elusive bird with brown plu… | imgs/aves/avetoro_co… |
+|  9 | Red-crested Pochard     | Netta rufina            | Male with red head and brig… | imgs/aves/pato_color… |
+| 10 | Western Marsh Harrier   | Circus aeruginosus      | Raptor with long wings, inh… | imgs/aves/aguilucho_… |
++----+-------------------------+-------------------------+------------------------------+-----------------------+
+
+Connected to: https://albuaves.onrender.com/api.php
+Status: Successfully retrieved 10 birds from public API

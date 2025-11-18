@@ -8,20 +8,21 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 
 ---
 
-## 🌐 Servidor Público (Producción)
+## 🌐 Public Server (Production)
 
-**¡La aplicación está desplegada y accesible desde Internet!**
+**✅ Application deployed and accessible from the Internet!**
 
-Una vez desplegado en Render, podrás acceder a:
+**Live URLs:**
 
-- 🌐 **Interfaz Web:** `https://TU-SERVICIO.onrender.com/`
-- 📡 **API REST:** `https://TU-SERVICIO.onrender.com/api.php`
-- 🏢 **Plataforma:** Render (Free Tier)
-- 🗄️ **Base de datos:** SQLite embebida
+- 🌐 **Web Interface:** https://albuaves.onrender.com/
+- 📡 **REST API:** https://albuaves.onrender.com/api.php
+- 🏢 **Platform:** Render (Free Tier)
+- 🗄️ **Database:** Embedded SQLite
+- 🌍 **Status:** Live and running
 
-**📖 Guía completa de despliegue:** [`GUIA_DESPLIEGUE_RENDER.md`](GUIA_DESPLIEGUE_RENDER.md)
+**📖 Complete deployment guide:** [`GUIA_DESPLIEGUE_RENDER.md`](GUIA_DESPLIEGUE_RENDER.md)
 
-**Nota:** Sigue la guía de despliegue para obtener tu URL pública y actualizar esta sección.
+**Note:** First load may take ~30 seconds if the service was idle (Render free tier limitation).
 
 ---
 
@@ -78,11 +79,21 @@ This is the easiest and most visual way to explore the birds. You will see:
 
 ### Screenshot of the interface
 
-![Web Interface - Albuaves Bird Gallery](docimgs/Albuaves%20-%20Sistema%20de%20Gestión%20de%20Aves-1.png)
+**Live Web Interface (English):**
+
+![Web Interface - Albuaves Bird Gallery](docimgs/web-interface-screenshot.jpg)
+
+**Initial Version (Spanish):**
+
+![Web Interface - Initial Version](docimgs/Albuaves%20-%20Sistema%20de%20Gestión%20de%20Aves-1.png)
 
 ### 📡 API Response - Example
 
-Access the API directly in your browser: `http://localhost:9191/api.php`
+Access the API directly in your browser: `http://localhost:9191/api.php` or via public URL: `https://albuaves.onrender.com/api.php`
+
+**Screenshot - API in Browser:**
+
+![API JSON Response](docimgs/api-browser-screenshot.png)
 
 **Example JSON Response:**
 ```json
@@ -110,6 +121,12 @@ Access the API directly in your browser: `http://localhost:9191/api.php`
 ### 💻 Java Client - Terminal Output
 
 The Java client consumes the API and displays results in a formatted table:
+
+**Screenshot - Java Client Running:**
+
+![Java Client Terminal Output](docimgs/java-client-screenshot.png)
+
+**Example Output:**
 
 ```
 API Response:
