@@ -1,19 +1,19 @@
 -- Create birds table
-CREATE TABLE aves (
-  id_ave INTEGER PRIMARY KEY AUTOINCREMENT,
-  nombre_comun TEXT NOT NULL,
-  nombre_cientifico TEXT NOT NULL,
-  descripcion TEXT,
-  imagen_url TEXT
+CREATE TABLE birds (
+  bird_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  common_name TEXT NOT NULL,
+  scientific_name TEXT NOT NULL,
+  description TEXT,
+  image_url TEXT
 );
 
 -- Create sightings table
-CREATE TABLE avistamientos (
-  id_avistamiento INTEGER PRIMARY KEY AUTOINCREMENT,
-  id_ave INTEGER NOT NULL,
-  fecha DATE NOT NULL,
-  hora TIME NOT NULL,
-  ubicacion TEXT NOT NULL,
-  observaciones TEXT,
-  FOREIGN KEY (id_ave) REFERENCES aves(id_ave)
+CREATE TABLE sightings (
+  sighting_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  bird_id INTEGER NOT NULL,
+  date DATE NOT NULL,
+  time TIME NOT NULL,
+  location TEXT NOT NULL,
+  observations TEXT,
+  FOREIGN KEY (bird_id) REFERENCES birds(bird_id)
 );

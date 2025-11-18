@@ -29,25 +29,25 @@ switch ($method) {
             if (isset($_GET['id'])) {
                 // Get a bird by ID
                 $id = $_GET['id'];
-                $stmt = $db->prepare("SELECT * FROM aves WHERE id_ave = :id");
+                $stmt = $db->prepare("SELECT * FROM birds WHERE bird_id = :id");
                 $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
                 $result = $stmt->execute();
-                $ave = $result->fetchArray(SQLITE3_ASSOC);
+                $bird = $result->fetchArray(SQLITE3_ASSOC);
 
-                if ($ave) {
-                    echo json_encode($ave);
+                if ($bird) {
+                    echo json_encode($bird);
                 } else {
                     http_response_code(404);
                     echo json_encode(["error" => "Bird not found"]);
                 }
             } else {
                 // Get all birds
-                $result = $db->query("SELECT * FROM aves");
-                $aves = [];
+                $result = $db->query("SELECT * FROM birds");
+                $birds = [];
                 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-                    $aves[] = $row;
+                    $birds[] = $row;
                 }
-                echo json_encode($aves);
+                echo json_encode($birds);
             }
         } catch (Exception $e) {
             http_response_code(500);

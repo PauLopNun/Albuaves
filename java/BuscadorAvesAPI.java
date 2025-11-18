@@ -70,36 +70,43 @@ public class BuscadorAvesAPI {
 private static void imprimirJSONMono(String json) {
         try {
             // If the response is an array of birds
-            JSONArray avesArray = new JSONArray(json);
+            JSONArray birdsArray = new JSONArray(json);
             System.out.println("🌿 List of birds in Albufera 🌿\n");
-            System.out.println("+----+----------------+---------------------+----------------+-----------------------+");
-            System.out.println("| ID |      Name      |      Scientific     |   Description  | Img    |");
-            System.out.println("+----+----------------+---------------------+----------------+-----------------------+");
+            System.out.println("+----+-------------------------+-------------------------+------------------------------+-----------------------+");
+            System.out.println("| ID |      Common Name        |    Scientific Name      |        Description           | Image    |");
+            System.out.println("+----+-------------------------+-------------------------+------------------------------+-----------------------+");
 
-            for (int i = 0; i < avesArray.length(); i++) {
-                JSONObject ave = avesArray.getJSONObject(i);
+            for (int i = 0; i < birdsArray.length(); i++) {
+                JSONObject bird = birdsArray.getJSONObject(i);
                 System.out.printf(
-                    "| %2d | %-14s | %-19s | %-14s | %-21s |\n",
-                    ave.getInt("id_ave"),
-                    ave.getString("nombre_comun"),
-                    ave.getString("nombre_cientifico"),
-                    ave.getString("descripcion"),
-                    ave.getString("imagen_url")
+                    "| %2d | %-23s | %-23s | %-28s | %-21s |\n",
+                    bird.getInt("bird_id"),
+                    truncate(bird.getString("common_name"), 23),
+                    truncate(bird.getString("scientific_name"), 23),
+                    truncate(bird.getString("description"), 28),
+                    truncate(bird.getString("image_url"), 21)
                 );
             }
 
-            System.out.println("+----+----------------+---------------------+----------------+-----------------------+");
+            System.out.println("+----+-------------------------+-------------------------+------------------------------+-----------------------+");
         } catch (Exception e) {
             // If the response is a single object (for example, when searching by ID)
 
-            JSONObject ave = new JSONObject(json);
+            JSONObject bird = new JSONObject(json);
             System.out.println("\n📜 Bird details 📜");
-            System.out.println("ID: " + ave.getInt("id_ave"));
-            System.out.println("Name: " + ave.getString("nombre_comun"));
-            System.out.println("Scientific: " + ave.getString("nombre_cientifico"));
-            System.out.println("Description: " + ave.getString("descripcion"));
-            System.out.println("Image: " + ave.getString("imagen_url"));
+            System.out.println("ID: " + bird.getInt("bird_id"));
+            System.out.println("Common Name: " + bird.getString("common_name"));
+            System.out.println("Scientific Name: " + bird.getString("scientific_name"));
+            System.out.println("Description: " + bird.getString("description"));
+            System.out.println("Image: " + bird.getString("image_url"));
 
         }
+    }
+
+    private static String truncate(String str, int maxLength) {
+        if (str.length() <= maxLength) {
+            return str;
+        }
+        return str.substring(0, maxLength - 1) + "…";
     }
 }

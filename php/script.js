@@ -47,7 +47,7 @@ function displayBirds(birds) {
 // Create bird card
 function createBirdCard(bird) {
     // Build image URL with path handling
-    let imageUrl = bird.imagen_url;
+    let imageUrl = bird.image_url;
     // Clean double slashes
     imageUrl = imageUrl.replace(/\/+/g, '/');
     // If it starts with ./, convert it to a valid relative path
@@ -62,15 +62,15 @@ function createBirdCard(bird) {
     return `
         <div class="bird-card">
             <img src="${escapeHtml(imageUrl)}"
-                 alt="${escapeHtml(bird.nombre_comun)}"
+                 alt="${escapeHtml(bird.common_name)}"
                  class="bird-image"
                  loading="lazy"
                  onerror="this.parentElement.style.background='#f0f0f0'; this.style.display='none';">
             <div class="bird-card-content">
-                <h3>${escapeHtml(bird.nombre_comun)}</h3>
-                <p class="bird-scientific-name">${escapeHtml(bird.nombre_cientifico)}</p>
-                <p class="bird-description">${escapeHtml(bird.descripcion)}</p>
-                <span class="bird-id">ID: ${bird.id_ave}</span>
+                <h3>${escapeHtml(bird.common_name)}</h3>
+                <p class="bird-scientific-name">${escapeHtml(bird.scientific_name)}</p>
+                <p class="bird-description">${escapeHtml(bird.description)}</p>
+                <span class="bird-id">ID: ${bird.bird_id}</span>
             </div>
         </div>
     `;
@@ -88,13 +88,13 @@ function setupSearch() {
             updateResultCount(allBirds.length);
         } else {
             const filteredBirds = allBirds.filter(bird => {
-                const nombre = bird.nombre_comun.toLowerCase();
-                const cientifico = bird.nombre_cientifico.toLowerCase();
-                const descripcion = bird.descripcion.toLowerCase();
+                const commonName = bird.common_name.toLowerCase();
+                const scientificName = bird.scientific_name.toLowerCase();
+                const description = bird.description.toLowerCase();
 
-                return nombre.includes(searchTerm) ||
-                       cientifico.includes(searchTerm) ||
-                       descripcion.includes(searchTerm);
+                return commonName.includes(searchTerm) ||
+                       scientificName.includes(searchTerm) ||
+                       description.includes(searchTerm);
             });
 
             displayBirds(filteredBirds);

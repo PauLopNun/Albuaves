@@ -1,72 +1,72 @@
 [
   {
-    "id_ave": 1,
-    "nombre_comun": "Martinete",
-    "nombre_cientifico": "Nycticorax nycticorax",
-    "descripcion": "Ave nocturna de plumaje blanco y negro, común en humedales.",
-    "imagen_url": "imgs/aves/martinete.jpg"
+    "bird_id": 1,
+    "common_name": "Black-crowned Night Heron",
+    "scientific_name": "Nycticorax nycticorax",
+    "description": "Nocturnal bird with black and white plumage, common in wetlands.",
+    "image_url": "imgs/aves/martinete.jpg"
   },
   {
-    "id_ave": 2,
-    "nombre_comun": "Garza Real",
-    "nombre_cientifico": "Ardea cinerea",
-    "descripcion": "Grande y elegante, con plumaje gris y pico largo.",
-    "imagen_url": "imgs/aves/garza_real.jpg"
+    "bird_id": 2,
+    "common_name": "Grey Heron",
+    "scientific_name": "Ardea cinerea",
+    "description": "Large and elegant, with grey plumage and long bill.",
+    "image_url": "imgs/aves/garza_real.jpg"
   },
   {
-    "id_ave": 3,
-    "nombre_comun": "Flamenco Común",
-    "nombre_cientifico": "Phoenicopterus roseus",
-    "descripcion": "Ave rosada de patas largas, típica de zonas salinas.",
-    "imagen_url": "imgs/aves/flamenco_comun.jpg"
+    "bird_id": 3,
+    "common_name": "Greater Flamingo",
+    "scientific_name": "Phoenicopterus roseus",
+    "description": "Pink bird with long legs, typical of saline areas.",
+    "image_url": "imgs/aves/flamenco_comun.jpg"
   },
   {
-    "id_ave": 4,
-    "nombre_comun": "Ánade Real",
-    "nombre_cientifico": "Anas platyrhynchos",
-    "descripcion": "Pato común, macho con cabeza verde y pico amarillo.",
-    "imagen_url": "imgs/aves/anade_real.jpg"
+    "bird_id": 4,
+    "common_name": "Mallard",
+    "scientific_name": "Anas platyrhynchos",
+    "description": "Common duck, male with green head and yellow bill.",
+    "image_url": "imgs/aves/anade_real.jpg"
   },
   {
-    "id_ave": 5,
-    "nombre_comun": "Charrán Común",
-    "nombre_cientifico": "Sterna hirundo",
-    "descripcion": "Ave marina de vuelo ágil, pico rojo y negro.",
-    "imagen_url": "imgs/aves/charran_comun.jpg"
+    "bird_id": 5,
+    "common_name": "Common Tern",
+    "scientific_name": "Sterna hirundo",
+    "description": "Seabird with agile flight, red and black bill.",
+    "image_url": "imgs/aves/charran_comun.jpg"
   },
   {
-    "id_ave": 6,
-    "nombre_comun": "Somormujo Lavanco",
-    "nombre_cientifico": "Podiceps cristatus",
-    "descripcion": "Elegante nadador con cresta y cuello largo.",
-    "imagen_url": "imgs/aves/somormujo_lavanco.jpg"
+    "bird_id": 6,
+    "common_name": "Great Crested Grebe",
+    "scientific_name": "Podiceps cristatus",
+    "description": "Elegant swimmer with crest and long neck.",
+    "image_url": "imgs/aves/somormujo_lavanco.jpg"
   },
   {
-    "id_ave": 7,
-    "nombre_comun": "Calamón Común",
-    "nombre_cientifico": "Porphyrio porphyrio",
-    "descripcion": "Ave de plumaje azul intenso, pico y patas rojas.",
-    "imagen_url": "imgs/aves/calamon_comun.jpg"
+    "bird_id": 7,
+    "common_name": "Purple Swamphen",
+    "scientific_name": "Porphyrio porphyrio",
+    "description": "Bird with intense blue plumage, red bill and legs.",
+    "image_url": "imgs/aves/calamon_comun.jpg"
   },
   {
-    "id_ave": 8,
-    "nombre_comun": "Avetoro Común",
-    "nombre_cientifico": "Botaurus stellaris",
-    "descripcion": "Ave esquiva de plumaje pardo, similar a un búho.",
-    "imagen_url": "imgs/aves/avetoro_comun.jpg"
+    "bird_id": 8,
+    "common_name": "Eurasian Bittern",
+    "scientific_name": "Botaurus stellaris",
+    "description": "Elusive bird with brown plumage, similar to an owl.",
+    "image_url": "imgs/aves/avetoro_comun.jpg"
   },
   {
-    "id_ave": 9,
-    "nombre_comun": "Pato Colorado",
-    "nombre_cientifico": "Netta rufina",
-    "descripcion": "Macho con cabeza roja y pico rojo brillante.",
-    "imagen_url": "imgs/aves/pato_colorado.jpg"
+    "bird_id": 9,
+    "common_name": "Red-crested Pochard",
+    "scientific_name": "Netta rufina",
+    "description": "Male with red head and bright red bill.",
+    "image_url": "imgs/aves/pato_colorado.jpg"
   },
   {
-    "id_ave": 10,
-    "nombre_comun": "Aguilucho Lagunero",
-    "nombre_cientifico": "Circus aeruginosus",
-    "descripcion": "Rapaz de alas largas, habita en zonas húmedas.",
-    "imagen_url": "imgs/aves/aguilucho_lagunero.jpg"
+    "bird_id": 10,
+    "common_name": "Western Marsh Harrier",
+    "scientific_name": "Circus aeruginosus",
+    "description": "Raptor with long wings, inhabits wetlands.",
+    "image_url": "imgs/aves/aguilucho_lagunero.jpg"
   }
 ]

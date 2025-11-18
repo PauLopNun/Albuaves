@@ -88,18 +88,18 @@ Access the API directly in your browser: `http://localhost:9191/api.php`
 ```json
 [
   {
-    "id_ave": 1,
-    "nombre_comun": "Martinete",
-    "nombre_cientifico": "Nycticorax nycticorax",
-    "descripcion": "Ave nocturna de plumaje blanco y negro, común en humedales.",
-    "imagen_url": "imgs/aves/martinete.jpg"
+    "bird_id": 1,
+    "common_name": "Black-crowned Night Heron",
+    "scientific_name": "Nycticorax nycticorax",
+    "description": "Nocturnal bird with black and white plumage, common in wetlands.",
+    "image_url": "imgs/aves/martinete.jpg"
   },
   {
-    "id_ave": 2,
-    "nombre_comun": "Garza Real",
-    "nombre_cientifico": "Ardea cinerea",
-    "descripcion": "Grande y elegante, con plumaje gris y pico largo.",
-    "imagen_url": "imgs/aves/garza_real.jpg"
+    "bird_id": 2,
+    "common_name": "Grey Heron",
+    "scientific_name": "Ardea cinerea",
+    "description": "Large and elegant, with grey plumage and long bill.",
+    "image_url": "imgs/aves/garza_real.jpg"
   }
   // ... (8 more birds)
 ]
@@ -115,20 +115,20 @@ The Java client consumes the API and displays results in a formatted table:
 API Response:
 🌿 List of birds in Albufera 🌿
 
-+----+----------------+---------------------+----------------+-----------------------+
-| ID |      Name      |      Scientific     |   Description  | Img    |
-+----+----------------+---------------------+----------------+-----------------------+
-|  1 | Martinete      | Nycticorax nyctico… | Ave nocturna d… | imgs/aves/martinete.j…|
-|  2 | Garza Real     | Ardea cinerea       | Grande y elega… | imgs/aves/garza_real.…|
-|  3 | Flamenco Común | Phoenicopterus ros… | Ave rosada de … | imgs/aves/flamenco_co…|
-|  4 | Ánade Real     | Anas platyrhynchos  | Pato común, ma… | imgs/aves/anade_real.…|
-|  5 | Charrán Común  | Sterna hirundo      | Ave marina de … | imgs/aves/charran_com…|
-|  6 | Somormujo Lava…| Podiceps cristatus  | Elegante nadad… | imgs/aves/somormujo_l…|
-|  7 | Calamón Común  | Porphyrio porphyrio | Ave de plumaje… | imgs/aves/calamon_com…|
-|  8 | Avetoro Común  | Botaurus stellaris  | Ave esquiva de… | imgs/aves/avetoro_com…|
-|  9 | Pato Colorado  | Netta rufina        | Macho con cabe… | imgs/aves/pato_colora…|
-| 10 | Aguilucho Lago…| Circus aeruginosus  | Rapaz de alas … | imgs/aves/aguilucho_l…|
-+----+----------------+---------------------+----------------+-----------------------+
++----+-------------------------+-------------------------+------------------------------+-----------------------+
+| ID |      Common Name        |    Scientific Name      |        Description           | Image    |
++----+-------------------------+-------------------------+------------------------------+-----------------------+
+|  1 | Black-crowned Night H…  | Nycticorax nycticorax   | Nocturnal bird with black…   | imgs/aves/martinete.j…|
+|  2 | Grey Heron              | Ardea cinerea           | Large and elegant, with g…   | imgs/aves/garza_real.…|
+|  3 | Greater Flamingo        | Phoenicopterus roseus   | Pink bird with long legs,…   | imgs/aves/flamenco_co…|
+|  4 | Mallard                 | Anas platyrhynchos      | Common duck, male with gr…   | imgs/aves/anade_real.…|
+|  5 | Common Tern             | Sterna hirundo          | Seabird with agile flight…   | imgs/aves/charran_com…|
+|  6 | Great Crested Grebe     | Podiceps cristatus      | Elegant swimmer with cres…   | imgs/aves/somormujo_l…|
+|  7 | Purple Swamphen         | Porphyrio porphyrio     | Bird with intense blue pl…   | imgs/aves/calamon_com…|
+|  8 | Eurasian Bittern        | Botaurus stellaris      | Elusive bird with brown p…   | imgs/aves/avetoro_com…|
+|  9 | Red-crested Pochard     | Netta rufina            | Male with red head and br…   | imgs/aves/pato_colora…|
+| 10 | Western Marsh Harrier   | Circus aeruginosus      | Raptor with long wings, i…   | imgs/aves/aguilucho_l…|
++----+-------------------------+-------------------------+------------------------------+-----------------------+
 ```
 
 **Full output available at:** [`docimgs/java-client-output.txt`](docimgs/java-client-output.txt)
@@ -270,7 +270,7 @@ Todas las tecnologías utilizadas en este proyecto son de código abierto o grat
 | **SQLite JDBC** | Apache License 2.0 | Open Source | [github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc/blob/master/LICENSE) |
 | **Docker** | Apache License 2.0 | Open Source | [docker.com/legal](https://www.docker.com/legal/) |
 
-**Licencia del Proyecto:** Este es un proyecto educativo para el módulo DAM (Desarrollo de Aplicaciones Multiplataforma). Todo el código desarrollado está disponible bajo licencia educativa.
+**Project License:** This is an educational project for the DAM (Multiplatform Application Development) module. All developed code is available under an educational license.
 
 ---
 
@@ -473,16 +473,16 @@ At the top there is a search box that allows you to:
 
 | ID | Common Name | Scientific Name | Image |
 |---|---|---|---|
-| 1 | Martinete | *Nycticorax nycticorax* | ✅ |
-| 2 | Garza Real | *Ardea cinerea* | ✅ |
-| 3 | Flamenco Común | *Phoenicopterus roseus* | ✅ |
-| 4 | Ánade Real | *Anas platyrhynchos* | ✅ |
-| 5 | Charrán Común | *Sterna hirundo* | ✅ |
-| 6 | Somormujo Lavanco | *Podiceps cristatus* | ✅ |
-| 7 | Calamón Común | *Porphyrio porphyrio* | ✅ |
-| 8 | Avetoro Común | *Botaurus stellaris* | ✅ |
-| 9 | Pato Colorado | *Netta rufina* | ✅ |
-| 10 | Aguilucho Lagunero | *Circus aeruginosus* | ✅ |
+| 1 | Black-crowned Night Heron | *Nycticorax nycticorax* | ✅ |
+| 2 | Grey Heron | *Ardea cinerea* | ✅ |
+| 3 | Greater Flamingo | *Phoenicopterus roseus* | ✅ |
+| 4 | Mallard | *Anas platyrhynchos* | ✅ |
+| 5 | Common Tern | *Sterna hirundo* | ✅ |
+| 6 | Great Crested Grebe | *Podiceps cristatus* | ✅ |
+| 7 | Purple Swamphen | *Porphyrio porphyrio* | ✅ |
+| 8 | Eurasian Bittern | *Botaurus stellaris* | ✅ |
+| 9 | Red-crested Pochard | *Netta rufina* | ✅ |
+| 10 | Western Marsh Harrier | *Circus aeruginosus* | ✅ |
 
 ### Web Interface Technology
 
@@ -638,28 +638,28 @@ docker-compose up
 
 ## Database
 
-### Schema of the `aves` table
+### Schema of the `birds` table
 ```sql
-CREATE TABLE aves (
-  id_ave INTEGER PRIMARY KEY AUTOINCREMENT,
-  nombre_comun TEXT NOT NULL,
-  nombre_cientifico TEXT NOT NULL,
-  descripcion TEXT,
-  imagen_url TEXT
+CREATE TABLE birds (
+  bird_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  common_name TEXT NOT NULL,
+  scientific_name TEXT NOT NULL,
+  description TEXT,
+  image_url TEXT
 );
 ```
 
 ### Included birds
-1. Martinete (Nycticorax nycticorax)
-2. Garza Real (Ardea cinerea)
-3. Flamenco Común (Phoenicopterus roseus)
-4. Ánade Real (Anas platyrhynchos)
-5. Pato Colorado (Netta rufina)
-6. Aguilucho Lagunero (Circus aeruginosus)
-7. Calamón Común (Porphyrio porphyrio)
-8. Charrán Común (Sterna hirundo)
-9. Avetoro Común (Botaurus stellaris)
-10. Somormujo Lavanco (Podiceps cristatus)
+1. Black-crowned Night Heron (Nycticorax nycticorax)
+2. Grey Heron (Ardea cinerea)
+3. Greater Flamingo (Phoenicopterus roseus)
+4. Mallard (Anas platyrhynchos)
+5. Red-crested Pochard (Netta rufina)
+6. Western Marsh Harrier (Circus aeruginosus)
+7. Purple Swamphen (Porphyrio porphyrio)
+8. Common Tern (Sterna hirundo)
+9. Eurasian Bittern (Botaurus stellaris)
+10. Great Crested Grebe (Podiceps cristatus)
 
 ## Technical Features
 
