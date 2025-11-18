@@ -123,7 +123,7 @@ The Java client consumes the API and displays results in a formatted table:
 **Screenshot - Java Client Running:**
 
 <p align="center">
-  <img src="docimgs/java-client-screenshot.png" alt="Java Client Terminal Output" width="400">
+  <img src="docimgs/java-client-screenshot.png" alt="Java Client Terminal Output">
 </p>
 
 **Example Output:**
