@@ -58,6 +58,29 @@
 
 ---
 
+### 🌐 Parte 5: Despliegue en Servidor Público (REQUERIDO)
+
+**Requisito del profesor:** El proyecto debe estar desplegado en un servidor público (AWS, Render, Raspberry Pi, etc.)
+
+| Componente | Estado | Detalles |
+|-----------|--------|----------|
+| **Configuración de despliegue** | ✅ **COMPLETO** | Archivos `render.yaml`, `Dockerfile.render`, `docker-entrypoint.sh` creados |
+| **Guía de despliegue** | ✅ **COMPLETO** | `GUIA_DESPLIEGUE_RENDER.md` con instrucciones paso a paso |
+| **Sección en README** | ✅ **COMPLETO** | Sección "Servidor Público" agregada al README |
+| **Despliegue real** | ⚠️ **PENDIENTE** | Debes seguir `GUIA_DESPLIEGUE_RENDER.md` para desplegarlo |
+| **URL pública actualizada** | ⚠️ **PENDIENTE** | Una vez desplegado, actualizar README con la URL real |
+
+**Estado:** 3/5 completo (falta desplegar y obtener URL pública)
+
+**Acción requerida:**
+1. Seguir la guía [`GUIA_DESPLIEGUE_RENDER.md`](GUIA_DESPLIEGUE_RENDER.md)
+2. Crear cuenta en Render (gratis, sin tarjeta)
+3. Desplegar el servicio
+4. Obtener URL pública (ej: `https://albuaves-api.onrender.com`)
+5. Actualizar README con la URL real
+
+---
+
 ## 📊 Puntuación Estimada
 
 ### Estado Actual (antes de capturas):

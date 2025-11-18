@@ -6,6 +6,25 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 - 💻 **Java client** to consume the API
 - 🗄️ **Database** with 10 species of waterfowl
 
+---
+
+## 🌐 Servidor Público (Producción)
+
+**¡La aplicación está desplegada y accesible desde Internet!**
+
+Una vez desplegado en Render, podrás acceder a:
+
+- 🌐 **Interfaz Web:** `https://TU-SERVICIO.onrender.com/`
+- 📡 **API REST:** `https://TU-SERVICIO.onrender.com/api.php`
+- 🏢 **Plataforma:** Render (Free Tier)
+- 🗄️ **Base de datos:** SQLite embebida
+
+**📖 Guía completa de despliegue:** [`GUIA_DESPLIEGUE_RENDER.md`](GUIA_DESPLIEGUE_RENDER.md)
+
+**Nota:** Sigue la guía de despliegue para obtener tu URL pública y actualizar esta sección.
+
+---
+
 ## Requirements
 
 - Docker Desktop installed

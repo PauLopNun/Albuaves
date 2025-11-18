@@ -1,0 +1,13 @@
+services:
+  # Servicio principal: API PHP + Interfaz Web
+  - type: web
+    name: albuaves-api
+    env: docker
+    dockerfilePath: ./Dockerfile.render
+    plan: free
+    region: frankfurt
+    healthCheckPath: /api.php
+    envVars:
+      - key: PORT
+        value: 10000
+    autoDeploy: true
