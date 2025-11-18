@@ -20,8 +20,6 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 - 🗄️ **Database:** Embedded SQLite
 - 🌍 **Status:** Live and running
 
-**📖 Complete deployment guide:** [`GUIA_DESPLIEGUE_RENDER.md`](GUIA_DESPLIEGUE_RENDER.md)
-
 **Note:** First load may take ~30 seconds if the service was idle (Render free tier limitation).
 
 ---
@@ -236,52 +234,52 @@ UP02-Proyecto-DAM-Albuaves/
     └── sqlite-jdbc.jar                 # SQLite JDBC driver
 ```
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
-Este proyecto integra múltiples tecnologías modernas para ofrecer una solución completa y profesional:
+This project integrates multiple modern technologies to offer a complete and professional solution:
 
-### Backend y API
+### Backend and API
 
-| Tecnología | Versión | Descripción | Enlace Oficial |
+| Technology | Version | Description | Official Link |
 |-----------|---------|-------------|----------------|
-| **PHP** | 8.2 | Lenguaje de servidor para la API REST | [php.net](https://www.php.net/) |
-| **Apache** | 2.4 | Servidor web HTTP | [httpd.apache.org](https://httpd.apache.org/) |
-| **SQLite** | 3.x | Base de datos relacional embebida | [sqlite.org](https://www.sqlite.org/) |
+| **PHP** | 8.2 | Server language for REST API | [php.net](https://www.php.net/) |
+| **Apache** | 2.4 | HTTP web server | [httpd.apache.org](https://httpd.apache.org/) |
+| **SQLite** | 3.x | Embedded relational database | [sqlite.org](https://www.sqlite.org/) |
 
-### Cliente Java
+### Java Client
 
-| Tecnología | Versión | Descripción | Enlace Oficial |
+| Technology | Version | Description | Official Link |
 |-----------|---------|-------------|----------------|
-| **Java** | OpenJDK 17 | Plataforma de desarrollo | [openjdk.org](https://openjdk.org/) |
-| **JSON-java** | 20250517 | Librería para procesamiento JSON | [github.com/stleary/JSON-java](https://github.com/stleary/JSON-java) |
-| **SQLite JDBC** | Latest | Driver JDBC para SQLite | [github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) |
+| **Java** | OpenJDK 17 | Development platform | [openjdk.org](https://openjdk.org/) |
+| **JSON-java** | 20250517 | JSON processing library | [github.com/stleary/JSON-java](https://github.com/stleary/JSON-java) |
+| **SQLite JDBC** | Latest | JDBC driver for SQLite | [github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) |
 
 ### Frontend
 
-| Tecnología | Descripción | Documentación |
+| Technology | Description | Documentation |
 |-----------|-------------|---------------|
-| **HTML5** | Estructura semántica moderna | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML) |
-| **CSS3** | Estilos con gradientes y responsive design | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS) |
-| **JavaScript (ES6+)** | Lógica de interfaz (Fetch API, DOM) | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| **HTML5** | Modern semantic structure | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML) |
+| **CSS3** | Styles with gradients and responsive design | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS) |
+| **JavaScript (ES6+)** | Interface logic (Fetch API, DOM) | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
 
-### Infraestructura
+### Infrastructure
 
-| Tecnología | Versión | Descripción | Enlace Oficial |
+| Technology | Version | Description | Official Link |
 |-----------|---------|-------------|----------------|
-| **Docker** | 20.10+ | Plataforma de contenedorización | [docker.com](https://www.docker.com/) |
-| **Docker Compose** | 2.x | Orquestación de servicios multi-contenedor | [docs.docker.com/compose](https://docs.docker.com/compose/) |
+| **Docker** | 20.10+ | Containerization platform | [docker.com](https://www.docker.com/) |
+| **Docker Compose** | 2.x | Multi-container service orchestration | [docs.docker.com/compose](https://docs.docker.com/compose/) |
 
 ---
 
-## 📜 Licencias
+## 📜 Licenses
 
-Todas las tecnologías utilizadas en este proyecto son de código abierto o gratuitas:
+All technologies used in this project are open source or free:
 
-| Componente | Licencia | Tipo | Detalles |
+| Component | License | Type | Details |
 |-----------|----------|------|----------|
 | **PHP 8.2** | PHP License v3.01 | Open Source | [license.php.net](https://www.php.net/license/3_01.txt) |
 | **Apache 2.4** | Apache License 2.0 | Open Source | [apache.org/licenses](https://www.apache.org/licenses/LICENSE-2.0) |
-| **SQLite** | Public Domain | Dominio Público | [sqlite.org/copyright.html](https://www.sqlite.org/copyright.html) |
+| **SQLite** | Public Domain | Public Domain | [sqlite.org/copyright.html](https://www.sqlite.org/copyright.html) |
 | **OpenJDK 17** | GPL v2 + Classpath Exception | Open Source | [openjdk.org/legal](https://openjdk.org/legal/) |
 | **JSON-java** | JSON License (MIT compatible) | Open Source | [github.com/stleary/JSON-java](https://github.com/stleary/JSON-java/blob/master/LICENSE) |
 | **SQLite JDBC** | Apache License 2.0 | Open Source | [github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc/blob/master/LICENSE) |
@@ -291,103 +289,103 @@ Todas las tecnologías utilizadas en este proyecto son de código abierto o grat
 
 ---
 
-## 💡 Motivación Técnica
+## 💡 Technical Motivation
 
-### ¿Por qué estas tecnologías?
+### Why These Technologies?
 
 #### **1. PHP + Apache + SQLite (Backend)**
 
-**Decisión:** Stack LAMP simplificado sin MySQL.
+**Decision:** Simplified LAMP stack without MySQL.
 
-**Motivaciones:**
-- ✅ **SQLite en lugar de MySQL:** Para un proyecto educativo con datos limitados (10 aves), SQLite es perfecto:
-  - Sin necesidad de servidor de base de datos adicional
-  - Base de datos en un solo archivo portable
-  - Ideal para desarrollo y demos
-  - Consumo mínimo de recursos
-- ✅ **PHP 8.2:** Lenguaje maduro y ampliamente soportado para APIs REST
-  - Sintaxis sencilla para principiantes
-  - PDO para acceso a base de datos de forma segura
-  - Gran comunidad y documentación
-- ✅ **Apache:** Servidor web estándar de la industria
-  - Fácil configuración con .htaccess
-  - Excelente integración con PHP
-  - URL rewriting para API amigable
+**Rationale:**
+- ✅ **SQLite instead of MySQL:** For an educational project with limited data (10 birds), SQLite is perfect:
+  - No need for additional database server
+  - Database in a single portable file
+  - Ideal for development and demos
+  - Minimal resource consumption
+- ✅ **PHP 8.2:** Mature and widely supported language for REST APIs
+  - Simple syntax for beginners
+  - PDO for secure database access
+  - Large community and documentation
+- ✅ **Apache:** Industry-standard web server
+  - Easy configuration with .htaccess
+  - Excellent PHP integration
+  - URL rewriting for friendly API
 
-#### **2. Java 17 (Cliente)**
+#### **2. Java 17 (Client)**
 
-**Decisión:** Cliente en Java puro con librerías mínimas.
+**Decision:** Pure Java client with minimal libraries.
 
-**Motivaciones:**
-- ✅ **Java 17 LTS:** Versión con soporte a largo plazo
-  - Rendimiento mejorado vs versiones anteriores
-  - APIs modernas (HttpClient, var, records)
-  - Ampliamente utilizado en entornos empresariales
-- ✅ **JSON-java:** Librería estándar para JSON
-  - Simple y directa
-  - No requiere configuración compleja
-  - Ideal para aprendizaje
-- ✅ **Sin frameworks pesados:** Para demostrar conceptos fundamentales
-  - Los estudiantes entienden HTTP desde cero
-  - No se oculta la complejidad detrás de abstracciones
+**Rationale:**
+- ✅ **Java 17 LTS:** Long-term support version
+  - Improved performance vs previous versions
+  - Modern APIs (HttpClient, var, records)
+  - Widely used in enterprise environments
+- ✅ **JSON-java:** Standard JSON library
+  - Simple and straightforward
+  - No complex configuration required
+  - Ideal for learning
+- ✅ **No heavy frameworks:** To demonstrate fundamental concepts
+  - Students understand HTTP from scratch
+  - Complexity not hidden behind abstractions
 
-#### **3. Docker + Docker Compose (Infraestructura)**
+#### **3. Docker + Docker Compose (Infrastructure)**
 
-**Decisión:** Containerización completa del proyecto.
+**Decision:** Complete project containerization.
 
-**Motivaciones:**
-- ✅ **Portabilidad:** "Funciona en mi máquina" → "Funciona en todas las máquinas"
-  - Windows, Linux, macOS sin cambios
-  - No requiere instalar PHP, Java, Apache localmente
-- ✅ **Aislamiento:** Cada servicio en su contenedor
-  - Sin contaminación del sistema host
-  - Fácil limpieza con `docker-compose down`
-- ✅ **Aprendizaje:** Los estudiantes aprenden Docker, habilidad muy demandada
-  - Dockerfile para configuración de imágenes
-  - docker-compose.yml para orquestación
-  - Healthchecks para dependencias entre servicios
-- ✅ **Reproducibilidad:** El entorno es idéntico para todos
-  - Profesor y estudiantes ven exactamente lo mismo
-  - No hay errores por diferencias de versiones
+**Rationale:**
+- ✅ **Portability:** "Works on my machine" → "Works on all machines"
+  - Windows, Linux, macOS without changes
+  - No need to install PHP, Java, Apache locally
+- ✅ **Isolation:** Each service in its container
+  - No host system contamination
+  - Easy cleanup with `docker-compose down`
+- ✅ **Learning:** Students learn Docker, a highly demanded skill
+  - Dockerfile for image configuration
+  - docker-compose.yml for orchestration
+  - Healthchecks for service dependencies
+- ✅ **Reproducibility:** Identical environment for everyone
+  - Professor and students see exactly the same
+  - No errors from version differences
 
-#### **4. Frontend Vanilla (HTML + CSS + JS puro)**
+#### **4. Vanilla Frontend (Pure HTML + CSS + JS)**
 
-**Decisión:** Sin frameworks frontend (React, Vue, Angular).
+**Decision:** No frontend frameworks (React, Vue, Angular).
 
-**Motivaciones:**
-- ✅ **Simplicidad:** Foco en los fundamentos
-  - Entender DOM, eventos, Fetch API
-  - No requiere npm, webpack, build tools
-  - Código legible para principiantes
-- ✅ **Rendimiento:** Sin overhead de frameworks
-  - Carga instantánea
-  - No hay miles de dependencias
-- ✅ **Aprendizaje:** Antes de usar frameworks, entender la base
-  - Manipulación del DOM nativa
+**Rationale:**
+- ✅ **Simplicity:** Focus on fundamentals
+  - Understand DOM, events, Fetch API
+  - No npm, webpack, build tools required
+  - Readable code for beginners
+- ✅ **Performance:** No framework overhead
+  - Instant loading
+  - No thousands of dependencies
+- ✅ **Learning:** Understand the base before using frameworks
+  - Native DOM manipulation
   - Event listeners
-  - Promesas y async/await
+  - Promises and async/await
 
-### Decisiones de Diseño Clave
+### Key Design Decisions
 
-1. **API REST en lugar de GraphQL:**
-   - REST es más simple y estándar
-   - Mejor para enseñar HTTP methods (GET, POST, PUT, DELETE)
-   - No requiere schemas complejos
+1. **REST API instead of GraphQL:**
+   - REST is simpler and more standard
+   - Better for teaching HTTP methods (GET, POST, PUT, DELETE)
+   - No complex schemas required
 
-2. **Healthcheck en Docker Compose:**
-   - El cliente Java espera a que la API esté lista
-   - Evita errores de conexión al inicio
-   - Enseña buenas prácticas de microservicios
+2. **Healthcheck in Docker Compose:**
+   - Java client waits until API is ready
+   - Prevents connection errors at startup
+   - Teaches microservices best practices
 
-3. **Scripts multiplataforma (`.sh` y `.bat`):**
-   - Inclusión: Estudiantes con Windows, Linux o Mac
-   - Automatización: Un solo comando para iniciar todo
-   - Aprendizaje: Scripting básico en diferentes plataformas
+3. **Cross-platform scripts (`.sh` and `.bat`):**
+   - Inclusion: Students with Windows, Linux or Mac
+   - Automation: Single command to start everything
+   - Learning: Basic scripting on different platforms
 
-4. **Imágenes reales de aves incluidas:**
-   - Proyecto más atractivo visualmente
-   - Datos realistas (no "Foo", "Bar")
-   - Aprendizaje sobre gestión de assets
+4. **Real bird images included:**
+   - More visually attractive project
+   - Realistic data (not "Foo", "Bar")
+   - Learning about asset management
 
 ---
 
@@ -705,7 +703,7 @@ CREATE TABLE birds (
 
 ## 📚 Java Libraries Reference
 
-Las librerías Java utilizadas se encuentran en el directorio `libs/`:
+Java libraries used are located in the `libs/` directory:
 
 - **json-20250517.jar** - JSON processing for Java
   - Repository: https://github.com/stleary/JSON-java
@@ -715,7 +713,7 @@ Las librerías Java utilizadas se encuentran en el directorio `libs/`:
   - Repository: https://github.com/xerial/sqlite-jdbc
   - License: Apache License 2.0
 
-Para más detalles sobre tecnologías y licencias, consulta las secciones [🛠️ Tecnologías Utilizadas](#-tecnologías-utilizadas) y [📜 Licencias](#-licencias).
+For more details on technologies and licenses, see sections [🛠️ Technologies Used](#️-technologies-used) and [📜 Licenses](#-licenses).
 
 ## Main Features ✨
 
