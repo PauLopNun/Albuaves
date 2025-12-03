@@ -1,2 +1,19 @@
 # Ignorar el nombre de dispositivo reservado de Windows que causa problemas
 nul
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log

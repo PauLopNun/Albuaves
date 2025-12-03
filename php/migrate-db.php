@@ -1,6 +1,9 @@
 <?php
 // Migration script to add image_url to sightings table
-$dbPath = __DIR__ . '/../db/albuaves.db';
+$dbPath = __DIR__ . '/db/albuaves.db';
+if (!file_exists($dbPath)) {
+    $dbPath = __DIR__ . '/../db/albuaves.db';
+}
 
 try {
     $db = new SQLite3($dbPath);

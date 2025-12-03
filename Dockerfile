@@ -17,9 +17,11 @@ COPY php/ /var/www/html/
 # Copiar base de datos SQLite
 COPY db/albuaves.db /var/www/html/db/albuaves.db
 
-# Dar permisos a la base de datos
-RUN chmod 644 /var/www/html/db/albuaves.db && \
-    chown www-data:www-data /var/www/html/db/albuaves.db
+# Dar permisos a la base de datos y directorios
+# www-data necesita permisos de escritura en el directorio de la BD para archivos temporales (.wal, .shm)
+# y en los directorios de imágenes para las subidas
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html
 
 # Copiar script de inicio
 COPY docker-entrypoint.sh /usr/local/bin/

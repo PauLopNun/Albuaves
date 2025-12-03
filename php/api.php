@@ -5,10 +5,14 @@ header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Verify that the database file exists
-$dbPath = __DIR__ . '/../db/albuaves.db';
+$dbPath = __DIR__ . '/db/albuaves.db';
+if (!file_exists($dbPath)) {
+    $dbPath = __DIR__ . '/../db/albuaves.db';
+}
+
 if (!file_exists($dbPath)) {
     http_response_code(500);
-    echo json_encode(["error" => "Database not found at: $dbPath"]);
+    echo json_encode(["error" => "Database not found. Tried: " . __DIR__ . '/db/albuaves.db' . " and " . __DIR__ . '/../db/albuaves.db']);
     exit;
 }
 
