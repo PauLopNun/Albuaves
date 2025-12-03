@@ -1,11 +1,11 @@
 <?php
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Verify that the database file exists
-$dbPath = 'db/albuaves.db';
+$dbPath = __DIR__ . '/../db/albuaves.db';
 if (!file_exists($dbPath)) {
     http_response_code(500);
     echo json_encode(["error" => "Database not found at: $dbPath"]);
@@ -131,6 +131,55 @@ switch ($method) {
             } else {
                 http_response_code(500);
                 echo json_encode(["error" => "Error saving sighting"]);
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(["error" => "Error: " . $e->getMessage()]);
+        }
+        break;
+
+    case 'DELETE':
+        try {
+            // Get sighting ID from query string
+            $sightingId = isset($_GET['id']) ? intval($_GET['id']) : null;
+
+            if (!$sightingId) {
+                http_response_code(400);
+                echo json_encode(["error" => "Missing sighting ID"]);
+                exit;
+            }
+
+            // Get sighting data to delete associated image
+            $stmt = $db->prepare("SELECT image_url FROM sightings WHERE sighting_id = :id");
+            $stmt->bindValue(':id', $sightingId, SQLITE3_INTEGER);
+            $result = $stmt->execute();
+            $sighting = $result->fetchArray(SQLITE3_ASSOC);
+
+            if (!$sighting) {
+                http_response_code(404);
+                echo json_encode(["error" => "Sighting not found"]);
+                exit;
+            }
+
+            // Delete the sighting from database
+            $stmt = $db->prepare("DELETE FROM sightings WHERE sighting_id = :id");
+            $stmt->bindValue(':id', $sightingId, SQLITE3_INTEGER);
+            $deleteResult = $stmt->execute();
+
+            if ($deleteResult) {
+                // Delete associated image file if exists
+                if ($sighting['image_url'] && file_exists($sighting['image_url'])) {
+                    unlink($sighting['image_url']);
+                }
+
+                http_response_code(200);
+                echo json_encode([
+                    "success" => true,
+                    "message" => "Sighting deleted successfully"
+                ]);
+            } else {
+                http_response_code(500);
+                echo json_encode(["error" => "Error deleting sighting"]);
             }
         } catch (Exception $e) {
             http_response_code(500);

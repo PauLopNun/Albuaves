@@ -53,10 +53,42 @@
                 <h2 class="section-title">➕ Register New Sighting</h2>
                 <form id="sightingForm" class="sighting-form">
                     <div class="form-group">
-                        <label for="birdSelect">Bird Species *</label>
-                        <select id="birdSelect" name="bird_id" required>
-                            <option value="">Select a bird...</option>
-                        </select>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newSpeciesToggle">
+                            Register new species
+                        </label>
+                    </div>
+
+                    <div id="existingSpeciesFields">
+                        <div class="form-group">
+                            <label for="birdSelect">Bird Species *</label>
+                            <select id="birdSelect" name="bird_id">
+                                <option value="">Select a bird...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="newSpeciesFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="newCommonName">Common Name *</label>
+                            <input type="text" id="newCommonName" name="common_name" placeholder="e.g., Mallard">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newScientificName">Scientific Name *</label>
+                            <input type="text" id="newScientificName" name="scientific_name" placeholder="e.g., Anas platyrhynchos">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newDescription">Description</label>
+                            <textarea id="newDescription" name="description" rows="3" placeholder="Describe the bird species..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newBirdImage">Species Photo</label>
+                            <input type="file" id="newBirdImage" name="bird_image" accept="image/*">
+                            <div id="birdImagePreview" class="image-preview"></div>
+                        </div>
                     </div>
 
                     <div class="form-row">

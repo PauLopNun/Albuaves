@@ -11,7 +11,7 @@ services:
       - "9191:9191"
     volumes:
       - ./db:/var/www/html/db
-      - ./php/api.php:/var/www/html/api.php:ro
+      - ./php:/var/www/html:ro
     networks:
       - albuaves-network
     healthcheck:
