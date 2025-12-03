@@ -24,6 +24,51 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 
 ---
 
+## 🖥️ School Server (Local Network)
+
+**✅ Application deployed on school server!**
+
+**Local Network Access:**
+
+- 🌐 **Web Interface:** http://192.168.3.113:8000/
+- 📡 **REST API:** http://192.168.3.113:8000/api.php
+- 🏢 **Server:** PHP 8.3 Built-in Server
+- 🗄️ **Database:** Embedded SQLite
+- 🌍 **Status:** Live and running on port 8000
+
+### SSH Access
+
+**Server Details:**
+- **Host:** 192.168.3.113
+- **User:** pau
+- **Project Directory:** /home/pau/albuaves/
+
+### Server Management
+
+**Start the server:**
+```bash
+ssh pau@192.168.3.113 './start_albuaves.sh'
+```
+
+**Stop the server:**
+```bash
+ssh pau@192.168.3.113 './stop_albuaves.sh'
+```
+
+**View logs:**
+```bash
+ssh pau@192.168.3.113 'tail -f ~/albuaves/server.log'
+```
+
+**Check server status:**
+```bash
+ssh pau@192.168.3.113 'ps aux | grep "php -S"'
+```
+
+**Note:** The server runs on port 8000 instead of port 80 due to user permissions. The application is fully functional and accessible within the local network.
+
+---
+
 ## Requirements
 
 - Docker Desktop installed
