@@ -31,39 +31,53 @@ else
     exit 1
 fi
 
+# Crear directorios en el servidor
+echo ""
+echo -e "${YELLOW}[2/6] Creando directorios en el servidor...${NC}"
+ssh ${SERVER_USER}@${SERVER_HOST} << 'ENDSSH'
+    mkdir -p ~/albuaves/php/imgs/{aves,sightings}
+    mkdir -p ~/albuaves/db
+    chmod -R 755 ~/albuaves
+    echo "✓ Directorios creados"
+ENDSSH
+echo -e "${GREEN}✓ Directorios creados${NC}"
+
 # Subir archivos PHP
 echo ""
-echo -e "${YELLOW}[2/4] Subiendo archivos PHP...${NC}"
-scp php/sightings-api.php ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/
-scp php/migrate-db.php ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/
-scp php/index.html ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/
-scp php/script.js ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/
-scp php/style.css ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/
+echo -e "${YELLOW}[3/6] Subiendo archivos PHP...${NC}"
+scp php/*.php php/*.html php/*.css php/*.js ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/ 2>/dev/null || echo "  (algunos archivos pueden no existir)"
 echo -e "${GREEN}✓ Archivos PHP subidos${NC}"
+
+# Subir imágenes de aves
+echo ""
+echo -e "${YELLOW}[4/6] Subiendo imágenes de aves...${NC}"
+scp php/imgs/aves/* ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/php/imgs/aves/ 2>/dev/null || echo "  (algunas imágenes pueden no existir)"
+echo -e "${GREEN}✓ Imágenes de aves subidas${NC}"
 
 # Subir archivos de base de datos
 echo ""
-echo -e "${YELLOW}[3/4] Subiendo archivos de base de datos...${NC}"
-scp db/albuaves-db-create.sql ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/db/
-scp db/add-sighting-image.sql ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/db/
+echo -e "${YELLOW}[5/6] Subiendo archivos de base de datos...${NC}"
+scp db/*.sql db/*.db ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/db/ 2>/dev/null || echo "  (algunos archivos pueden no existir)"
 echo -e "${GREEN}✓ Archivos de BD subidos${NC}"
 
-# Ejecutar migración y crear directorios en el servidor
+# Ejecutar migración y reiniciar servidor
 echo ""
-echo -e "${YELLOW}[4/4] Ejecutando migración y configuración en el servidor...${NC}"
+echo -e "${YELLOW}[6/6] Ejecutando migración y reiniciando servidor...${NC}"
 ssh ${SERVER_USER}@${SERVER_HOST} << 'ENDSSH'
-    cd ~/albuaves
+    cd ~/albuaves/php
 
-    # Crear directorio para imágenes
-    mkdir -p php/imgs/sightings
-    chmod 755 php/imgs/sightings
-    echo "✓ Directorio imgs/sightings creado"
+    # Ejecutar migración si existe
+    if [ -f migrate-db.php ]; then
+        php migrate-db.php
+        echo "✓ Migración completada"
+    else
+        echo "⚠ No se encontró migrate-db.php, omitiendo migración"
+    fi
 
-    # Ejecutar migración
-    cd php
-    php migrate-db.php
-
-    echo "✓ Migración completada"
+    # Reiniciar servidor PHP
+    pkill -f "php -S.*:8000" || echo "  (no había servidor corriendo)"
+    nohup php -S 0.0.0.0:8000 > ~/albuaves/server.log 2>&1 &
+    echo "✓ Servidor PHP reiniciado en puerto 8000"
 ENDSSH
 
 echo -e "${GREEN}✓ Configuración completada${NC}"

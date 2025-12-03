@@ -26,7 +26,7 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 
 ## 🖥️ School Server (Local Network)
 
-**✅ Application deployed on school server!**
+**✅ Application deployed on school server with automatic deployment!**
 
 **Local Network Access:**
 
@@ -35,6 +35,21 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 - 🏢 **Server:** PHP 8.3 Built-in Server
 - 🗄️ **Database:** Embedded SQLite
 - 🌍 **Status:** Live and running on port 8000
+- 🚀 **Deployment:** Automatic via GitHub Actions
+
+### 🚀 Automatic Deployment
+
+**How it works:**
+- Every push to `main` automatically deploys to the SSH server via GitHub Actions
+- No manual intervention needed
+- Includes automatic server restart
+
+**Manual deployment (if needed):**
+```bash
+./deploy-to-ssh.sh
+```
+
+**Setup instructions:** See [.github/DEPLOY_SETUP.md](.github/DEPLOY_SETUP.md) for configuration details.
 
 ### SSH Access
 
@@ -45,16 +60,6 @@ Complete dockerized system for managing and querying waterfowl from the Albufera
 
 ### Server Management
 
-**Start the server:**
-```bash
-ssh pau@192.168.3.113 './start_albuaves.sh'
-```
-
-**Stop the server:**
-```bash
-ssh pau@192.168.3.113 './stop_albuaves.sh'
-```
-
 **View logs:**
 ```bash
 ssh pau@192.168.3.113 'tail -f ~/albuaves/server.log'
@@ -63,6 +68,11 @@ ssh pau@192.168.3.113 'tail -f ~/albuaves/server.log'
 **Check server status:**
 ```bash
 ssh pau@192.168.3.113 'ps aux | grep "php -S"'
+```
+
+**Manual restart (if needed):**
+```bash
+ssh pau@192.168.3.113 'cd ~/albuaves/php && nohup php -S 0.0.0.0:8000 > ~/albuaves/server.log 2>&1 &'
 ```
 
 **Note:** The server runs on port 8000 instead of port 80 due to user permissions. The application is fully functional and accessible within the local network.

@@ -1,0 +1,93 @@
+name: Deploy to SSH Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
+
+jobs:
+  deploy-ssh:
+    name: Deploy to School Server (SSH)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Test SSH connection
+        run: |
+          ssh -o ConnectTimeout=10 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo '✓ SSH connection successful'"
+
+      - name: Create remote directories
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            mkdir -p ~/albuaves/php/imgs/{aves,sightings}
+            mkdir -p ~/albuaves/db
+            chmod -R 755 ~/albuaves
+          EOF
+
+      - name: Deploy PHP files
+        run: |
+          scp -r php/*.php php/*.html php/*.css php/*.js \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/albuaves/php/
+
+      - name: Deploy bird images
+        run: |
+          scp -r php/imgs/aves/* \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/albuaves/php/imgs/aves/
+
+      - name: Deploy database files
+        run: |
+          scp db/*.sql db/*.db \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/albuaves/db/ || true
+
+      - name: Deploy server scripts
+        run: |
+          scp deploy-to-ssh.sh \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "chmod +x ~/deploy-to-ssh.sh"
+
+      - name: Run database migration
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            cd ~/albuaves/php
+            if [ -f migrate-db.php ]; then
+              php migrate-db.php
+              echo "✓ Database migration completed"
+            else
+              echo "⚠ No migration file found, skipping..."
+            fi
+          EOF
+
+      - name: Restart PHP server (if running)
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            # Stop existing server
+            pkill -f "php -S.*:8000" || echo "No server running"
+
+            # Start server in background
+            cd ~/albuaves/php
+            nohup php -S 0.0.0.0:8000 > ~/albuaves/server.log 2>&1 &
+
+            echo "✓ PHP server restarted on port 8000"
+            echo "Access at: http://192.168.3.113:8000"
+          EOF
+
+      - name: Deployment summary
+        run: |
+          echo "=========================================="
+          echo "✓ Deployment completed successfully!"
+          echo "=========================================="
+          echo ""
+          echo "🌐 Web Interface: http://192.168.3.113:8000/"
+          echo "📡 API: http://192.168.3.113:8000/api.php"
+          echo "🦅 Sightings API: http://192.168.3.113:8000/sightings-api.php"
+          echo ""
