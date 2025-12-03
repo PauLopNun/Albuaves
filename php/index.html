@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Albuaves - Bird Management System</title>
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
     <div class="container">
@@ -16,16 +16,86 @@
             </div>
         </header>
 
-        <!-- Search -->
-        <div class="search-section">
-            <input type="text" id="searchInput" class="search-box" placeholder="Search bird by common or scientific name...">
-            <span id="resultCount" class="result-count"></span>
+        <!-- Navigation Tabs -->
+        <div class="tabs-section">
+            <button class="tab-button active" data-tab="birds">🦅 Bird Catalog</button>
+            <button class="tab-button" data-tab="sightings">📋 Sightings</button>
+            <button class="tab-button" data-tab="register">➕ Register Sighting</button>
         </div>
 
-        <!-- Birds Grid -->
-        <main class="birds-grid" id="birdsGrid">
-            <div class="loading">Loading birds...</div>
-        </main>
+        <!-- Birds Tab -->
+        <div id="birds-tab" class="tab-content active">
+            <!-- Search -->
+            <div class="search-section">
+                <input type="text" id="searchInput" class="search-box" placeholder="Search bird by common or scientific name...">
+                <span id="resultCount" class="result-count"></span>
+            </div>
+
+            <!-- Birds Grid -->
+            <main class="birds-grid" id="birdsGrid">
+                <div class="loading">Loading birds...</div>
+            </main>
+        </div>
+
+        <!-- Sightings Tab -->
+        <div id="sightings-tab" class="tab-content">
+            <div class="sightings-section">
+                <h2 class="section-title">📋 Recorded Sightings</h2>
+                <div id="sightingsGrid" class="sightings-grid">
+                    <div class="loading">Loading sightings...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Sighting Tab -->
+        <div id="register-tab" class="tab-content">
+            <div class="register-section">
+                <h2 class="section-title">➕ Register New Sighting</h2>
+                <form id="sightingForm" class="sighting-form">
+                    <div class="form-group">
+                        <label for="birdSelect">Bird Species *</label>
+                        <select id="birdSelect" name="bird_id" required>
+                            <option value="">Select a bird...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sightingDate">Date *</label>
+                            <input type="date" id="sightingDate" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sightingTime">Time *</label>
+                            <input type="time" id="sightingTime" name="time" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location *</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Albufera Lagoon" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observations">Observations</label>
+                        <textarea id="observations" name="observations" rows="4" placeholder="Describe what you observed..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sightingImage">Photo</label>
+                        <input type="file" id="sightingImage" name="image" accept="image/*">
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Register Sighting</button>
+                        <button type="reset" class="btn-secondary">Clear Form</button>
+                    </div>
+
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
@@ -33,6 +103,6 @@
         </footer>
     </div>
 
-    <script src="script.js?v=2.0"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

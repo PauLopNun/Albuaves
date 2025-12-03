@@ -15,5 +15,6 @@ CREATE TABLE sightings (
   time TIME NOT NULL,
   location TEXT NOT NULL,
   observations TEXT,
+  image_url TEXT,
   FOREIGN KEY (bird_id) REFERENCES birds(bird_id)
 );
