@@ -4,6 +4,7 @@ let allSightings = [];
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Albuaves App v3.1 loaded - Checking features...');
     loadBirds();
     setupSearch();
     setupTabs();
